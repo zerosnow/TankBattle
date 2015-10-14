@@ -9,7 +9,5 @@ public interface Pixmap {
 
     int getHeight();
 
-    Graphics.PixmapFormat getFormat();
-
     void dispose();
 }
