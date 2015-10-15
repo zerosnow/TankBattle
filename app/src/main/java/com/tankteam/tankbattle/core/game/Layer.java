@@ -35,42 +35,35 @@ public class Layer {
 
     //在层次中添加精灵
     public void add(Sprite sprite) {
-        if (sprite == null) {
+        if (sprite == null)
             return;
-        }
-        if (gameObjects.size() == maximumSprite) {
+        if (gameObjects.size() == maximumSprite)
             return;
-        }
         gameObjects.add(sprite);
         sprite.onAdd(this);
     }
 
     //清除已死亡的精灵
     protected void removeDead() {
-        for (int i=0;i<gameObjects.size();i++) {
-            if(gameObjects.get(i) != null) {
-                while (gameObjects.get(i) != null && !gameObjects.get(i).isAlive()) {
+        for (int i=0;i<gameObjects.size();i++)
+            if(gameObjects.get(i) != null)
+                while (gameObjects.get(i) != null && !gameObjects.get(i).isAlive())
                     gameObjects.remove(i);
-                }
-            }
-        }
+    }
+
+    //更新层次中的精灵
+    protected void update(float deltaTime) {
+        for (int i=0;i<gameObjects.size();i++)
+            if (gameObjects.get(i) != null)
+                gameObjects.get(i).update(deltaTime);
     }
 
     //绘制层次中的精灵
     protected void onDraw(Graphics g) {
         removeDead();
-        for (int i=0;i<gameObjects.size();i++) {
-            if (gameObjects.get(i) != null) {
-                try {
-                    gameObjects.get(i).Update();
-                    if (gameObjects.get(i).isOnScene()) {
-                        gameObjects.get(i).draw(g);
-                    }
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-            }
-        }
+        for (int i=0;i<gameObjects.size();i++)
+            if (gameObjects.get(i) != null)
+                if (gameObjects.get(i).isOnScene())
+                    gameObjects.get(i).draw(g);
     }
-
 }

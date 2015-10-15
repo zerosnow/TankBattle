@@ -26,7 +26,7 @@ public abstract class Sprite extends Object{
     //精灵绘制的方法
     public abstract void draw(Graphics g);
     //状态更新
-    public abstract void Update();
+    public abstract void update(float deltaTime);
     //精灵移动的方法
     public void moveTo(int x, int y) {
         this.x = x;
