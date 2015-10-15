@@ -11,7 +11,7 @@ public class coreTestActivity extends GameActivity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_core_test);
+        this.setScene(getStartScene());
     }
 
     @Override
