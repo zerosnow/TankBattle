@@ -1,13 +1,13 @@
-package com.tankteam.tankbattle.core.world;
+package com.tankteam.tankbattle.core.game;
 
 import com.tankteam.tankbattle.core.graphics.Graphics;
 
 /**
  * Created by leiyong on 15/10/14.
  */
-
-//游戏中的场景类
 public abstract class Scene {
+    protected final Game game;
+
     //默认场景层次
     public static final int DEFAULT_LAYER_COUNT = 1;
     //层次中默认的物体数目
@@ -17,14 +17,11 @@ public abstract class Scene {
 
     protected int layerCount;
 
-    //游戏暂停时调用的方法
-    public abstract void onPause();
 
-    //游戏恢复时调用的方法
-    public abstract void onResume();
 
     //使用特定物体数量，固定层次创建游戏场景
-    public Scene(int layerCount, int[] layerObjectCount) {
+    public Scene(Game game, int layerCount, int[] layerObjectCount) {
+        this.game = game;
         this.layerCount = layerCount;
         layer = new Layer[layerCount];
         for(int i=0;i<layerCount;i++) {
@@ -33,7 +30,8 @@ public abstract class Scene {
     }
 
     //使用固定的物体数量与固定的层次创建
-    public Scene(int layerCount, int layerObjectCount) {
+    public Scene(Game game, int layerCount, int layerObjectCount) {
+        this.game = game;
         this.layerCount = layerCount;
         layer = new Layer[layerCount];
         for(int i=0;i<layerCount;i++) {
@@ -42,13 +40,31 @@ public abstract class Scene {
     }
 
     //使用默认的物体数量，固定的层次创建
-    public Scene(int layerCount) {
-        this(layerCount, DEFAULT_LAYER_OBJECT_COUNT);
+    public Scene(Game game, int layerCount) {
+        this(game, layerCount, DEFAULT_LAYER_OBJECT_COUNT);
     }
 
     //使用默认的物体数量和层次创建
-    public Scene() {
-        this(DEFAULT_LAYER_COUNT, DEFAULT_LAYER_OBJECT_COUNT);
+    public Scene(Game game) {
+        this(game, DEFAULT_LAYER_COUNT, DEFAULT_LAYER_OBJECT_COUNT);
+    }
+
+    //游戏暂停时调用的方法
+    public abstract void pause();
+
+    //游戏恢复时调用的方法
+    public abstract void resume();
+
+    //画面销毁时调用的方法
+    public abstract void dispose();
+
+    //画面更新时调用的方法
+    public abstract void update(float deltaTime);
+
+    public void present() {
+        for (int i=0;i<layerCount;i++) {
+            layer[i].onDraw(game.getGraphics());
+        }
     }
 
     //获得指定层次
@@ -125,43 +141,6 @@ public abstract class Scene {
         }
         this.layer[index] = layer;
     }
-    //场景初始化
-    protected void onSetScene() {
-
-    }
-
-    //场景结束
-    protected void OnEndScene() {
-
-    }
-
-    protected void onDraw(Graphics g) {
-        for (int i=0;i<layerCount;i++) {
-            layer[i].onDraw(g);
-        }
-    }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 }

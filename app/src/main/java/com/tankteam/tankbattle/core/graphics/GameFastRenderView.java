@@ -53,8 +53,8 @@ public class GameFastRenderView extends SurfaceView implements Runnable {
             float deltaTime = (System.nanoTime()-startTime)/1000000000.0f;
             startTime = System.nanoTime();
 
-            game.getCurrentScreen().update(deltaTime);
-            game.getCurrentScreen().present(deltaTime);
+            game.getCurrentScene().update(deltaTime);
+            game.getCurrentScene().present(deltaTime);
 
             Canvas canvas = holder.lockCanvas();
             canvas.getClipBounds(dstRect);

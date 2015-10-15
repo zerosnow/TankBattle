@@ -36,7 +36,7 @@ public class GameGraphics implements Graphics {
 
     @Override
     public Pixmap newPixmap(String fileName, PixmapFormat format) {
-        Bitmap.Config config = null;
+        Bitmap.Config config;
         if (format == PixmapFormat.RGB565)
             config = Bitmap.Config.RGB_565;
         else if (format == PixmapFormat.ARGB4444)

@@ -1,4 +1,4 @@
-package com.tankteam.tankbattle.core.world;
+package com.tankteam.tankbattle.core.game;
 
 import com.tankteam.tankbattle.core.graphics.Graphics;
 import com.tankteam.tankbattle.core.graphics.Sprite;
@@ -63,7 +63,7 @@ public class Layer {
             if (gameObjects.get(i) != null) {
                 try {
                     gameObjects.get(i).Update();
-                    if (gameObjects.get(i).isOnScreen()) {
+                    if (gameObjects.get(i).isOnScene()) {
                         gameObjects.get(i).draw(g);
                     }
                 } catch (Exception e) {

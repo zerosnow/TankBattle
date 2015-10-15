@@ -1,7 +1,7 @@
 package com.tankteam.tankbattle.core.graphics;
 
 
-import com.tankteam.tankbattle.core.world.Layer;
+import com.tankteam.tankbattle.core.game.Layer;
 
 /**
  * Created by leiyong on 15/10/14.
@@ -54,7 +54,7 @@ public abstract class Sprite extends Object{
     }
 
     //是否需要在屏幕中
-    public boolean isOnScreen() {
+    public boolean isOnScene() {
         if (parentLayer == null) {
             return false;
         }

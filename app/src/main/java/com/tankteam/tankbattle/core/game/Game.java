@@ -13,8 +13,8 @@ public interface Game {
     FileIO getFileIO();
     Graphics getGraphics();
     Audio getAudio();
-    void setScreen(Screen screen);
-    Screen getCurrentScreen();
-    Screen getStartScreen();
+    void setScene(Scene scene);
+    Scene getCurrentScene();
+    Scene getStartScene();
 
 }

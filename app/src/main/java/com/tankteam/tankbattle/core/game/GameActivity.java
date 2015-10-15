@@ -23,7 +23,7 @@ import com.tankteam.tankbattle.core.graphics.Graphics;
 /**
  * Created by leiyong on 15/10/15.
  */
-public class GameActivity extends AppCompatActivity implements Game {
+public abstract class GameActivity extends AppCompatActivity implements Game {
     private static final int  designResolutionWidth = 640;
     private static final int designResolutionHeight = 960;
     GameFastRenderView renderView;
@@ -31,7 +31,7 @@ public class GameActivity extends AppCompatActivity implements Game {
     Audio audio;
     Input input;
     FileIO fileIO;
-    Screen screen;
+    Scene scene;
     PowerManager.WakeLock wakeLock;
 
     @Override
@@ -52,7 +52,7 @@ public class GameActivity extends AppCompatActivity implements Game {
         fileIO = new GameFileIO(this);
         audio = new GameAudio(this);
         input = new GameInput(this, renderView, scaleX, scaleY);
-        screen = getStartScreen();
+        scene = getStartScene();
         setContentView(renderView);
 
         PowerManager powerManager = (PowerManager)getSystemService(Context.POWER_SERVICE);
@@ -63,7 +63,7 @@ public class GameActivity extends AppCompatActivity implements Game {
     public void onResume() {
         super.onResume();
         wakeLock.acquire();
-        screen.resume();
+        scene.resume();
         renderView.resume();
     }
 
@@ -72,10 +72,10 @@ public class GameActivity extends AppCompatActivity implements Game {
         super.onPause();
         wakeLock.release();
         renderView.pause();
-        screen.pause();
+        scene.pause();
 
         if (isFinishing())
-            screen.dispose();
+            scene.dispose();
     }
 
     @Override
@@ -99,23 +99,18 @@ public class GameActivity extends AppCompatActivity implements Game {
     }
 
     @Override
-    public void setScreen(Screen screen) {
-        if (screen == null)
-            throw new IllegalArgumentException("Screen must not be null");
-        this.screen.pause();
-        this.screen.dispose();
-        screen.resume();
-        screen.update(0);
-        this.screen = screen;
+    public void setScene(Scene scene) {
+        if (scene == null)
+            throw new IllegalArgumentException("Scene must not be null");
+        this.scene.pause();
+        this.scene.dispose();
+        scene.resume();
+        scene.update(0);
+        this.scene = scene;
     }
 
     @Override
-    public Screen getCurrentScreen() {
-        return screen;
-    }
-
-    @Override
-    public Screen getStartScreen() {
-        return null;
+    public Scene getCurrentScene() {
+        return scene;
     }
 }
