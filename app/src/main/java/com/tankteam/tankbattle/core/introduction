@@ -3,3 +3,9 @@ Created by leiyong on 15/10/14.
 
 
 1、该文件夹用于存放游戏引擎方面的文件
+    audio 声音引擎,包括音乐与音效的播放接口
+    fileIO 文件输入输出引擎,包括文件输入输出
+    graphics 图像引擎,包括图像的绘制,点,线,矩形,文本的绘制
+    Input 用户输入引擎,包括加速器输入,键盘输入,触摸(单点,多点)输入
+    game 场景管理引擎, 游戏主活动应继承自GameActivity,场景应继承自Scene,通过GameActivity.setScene(Scene scene)来切换场景
+
