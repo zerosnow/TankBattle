@@ -1,4 +1,4 @@
-package com.tankteam.tankbattle.graphics;
+package com.tankteam.tankbattle.core.graphics;
 
 import android.graphics.Bitmap;
 
@@ -7,9 +7,11 @@ import android.graphics.Bitmap;
  */
 public class GamePixmap implements Pixmap{
     Bitmap bitmap;
+    private Graphics.PixmapFormat format;
 
-    public GamePixmap(Bitmap bitmap) {
+    public GamePixmap(Bitmap bitmap, Graphics.PixmapFormat format) {
         this.bitmap = bitmap;
+        this.format = format;
     }
 
     @Override
@@ -20,6 +22,11 @@ public class GamePixmap implements Pixmap{
     @Override
     public int getHeight() {
         return bitmap.getHeight();
+    }
+
+    @Override
+    public Graphics.PixmapFormat getFormat() {
+        return format;
     }
 
     @Override

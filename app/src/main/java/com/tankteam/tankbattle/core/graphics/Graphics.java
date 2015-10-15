@@ -1,12 +1,14 @@
-package com.tankteam.tankbattle.graphics;
+package com.tankteam.tankbattle.core.graphics;
 
 /**
  * Created by leiyong on 15/10/13.
  */
 public interface Graphics {
-
+    enum PixmapFormat {
+        ARGB8888, ARGB4444, RGB565
+    }
     //使用JPEG或png加载一个图像
-    public Pixmap newPixmap(String fileName);
+    public Pixmap newPixmap(String fileName, PixmapFormat format);
 
     //使用给定color清除整个缓冲区的颜色
     void clear(int color);

@@ -1,4 +1,4 @@
-package com.tankteam.tankbattle.audio;
+package com.tankteam.tankbattle.core.audio;
 
 /**
  * Created by dengkai on 15/10/13.

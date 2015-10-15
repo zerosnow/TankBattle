@@ -1,4 +1,4 @@
-package com.tankteam.tankbattle.audio;
+package com.tankteam.tankbattle.core.audio;
 
 import android.app.Activity;
 import android.content.res.AssetFileDescriptor;

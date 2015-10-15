@@ -1,4 +1,4 @@
-package com.tankteam.tankbattle.graphics;
+package com.tankteam.tankbattle.core.graphics;
 
 import android.content.res.AssetManager;
 import android.graphics.Bitmap;
@@ -35,7 +35,17 @@ public class GameGraphics implements Graphics {
     }
 
     @Override
-    public Pixmap newPixmap(String fileName) {
+    public Pixmap newPixmap(String fileName, PixmapFormat format) {
+        Bitmap.Config config = null;
+        if (format == PixmapFormat.RGB565)
+            config = Bitmap.Config.RGB_565;
+        else if (format == PixmapFormat.ARGB4444)
+            config = Bitmap.Config.ARGB_4444;
+        else
+            config = Bitmap.Config.ARGB_8888;
+        BitmapFactory.Options options = new BitmapFactory.Options();
+        options.inPreferredConfig = config;
+
         InputStream in = null;
         Bitmap bitmap = null;
         try {
@@ -53,12 +63,20 @@ public class GameGraphics implements Graphics {
                 }
             }
         }
-        return new GamePixmap(bitmap);
+
+        if (bitmap.getConfig() == Bitmap.Config.RGB_565)
+            format = PixmapFormat.RGB565;
+        else if (bitmap.getConfig() == Bitmap.Config.ARGB_4444)
+            format = PixmapFormat.ARGB4444;
+        else
+            format = PixmapFormat.ARGB8888;
+
+        return new GamePixmap(bitmap, format);
     }
 
     @Override
     public void clear(int color) {
-        canvas.drawRGB((color & 0xff0000)>>16, (color & 0x00ff00)>>8, (color & 0x0000ff));
+        canvas.drawRGB((color & 0xff0000)>>16, (color & 0xff00)>>8, (color & 0xff));
     }
 
     @Override

@@ -1,4 +1,4 @@
-package com.tankteam.tankbattle.graphics;
+package com.tankteam.tankbattle.core.graphics;
 
 /**
  * Created by leiyong on 15/10/13.
@@ -8,6 +8,8 @@ public interface Pixmap {
     int getWidth();
 
     int getHeight();
+
+    Graphics.PixmapFormat getFormat();
 
     void dispose();
 }
