@@ -10,7 +10,7 @@ import com.tankteam.tankbattle.core.graphics.Sprite;
  * Created by leiyong on 15/10/13.
  */
 public abstract class Tank extends Sprite {
-    enum Direction{
+    public enum Direction{
         UP, DOWN, LEFT, RIGHT
     }
     //血量
@@ -46,6 +46,9 @@ public abstract class Tank extends Sprite {
             isAlive = false;
             super.remove();
         }
+    }
+    public Direction getDirection() {
+        return this.direction;
     }
     //死亡
     public abstract void Dead();

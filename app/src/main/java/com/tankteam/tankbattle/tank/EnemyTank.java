@@ -8,12 +8,12 @@ import com.tankteam.tankbattle.core.graphics.Sprite;
  * Created by leiyong on 15/10/13.
  */
 public class EnemyTank extends Tank {
-    enum Type {
+    enum EnemyType {
         NORMAL, SENIOR, STRONG,
     }
-    private Type type;
+    private EnemyType type;
 
-    protected EnemyTank(Pixmap pixmap, Type type) {
+    protected EnemyTank(Pixmap pixmap, EnemyType type) {
         super(pixmap);
         this.type = type;
         direction = Direction.DOWN;
