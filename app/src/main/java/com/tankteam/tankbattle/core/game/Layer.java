@@ -1,6 +1,7 @@
 package com.tankteam.tankbattle.core.game;
 
 import com.tankteam.tankbattle.core.graphics.Graphics;
+import com.tankteam.tankbattle.core.graphics.Pixmap;
 import com.tankteam.tankbattle.core.graphics.Sprite;
 
 import java.util.ArrayList;
@@ -56,6 +57,17 @@ public class Layer {
         for (int i=0;i<gameObjects.size();i++)
             if (gameObjects.get(i) != null)
                 gameObjects.get(i).update(deltaTime);
+    }
+
+    //使用颜色绘制背景层
+    protected void drawBackGround(Graphics graphics, int color) {
+        graphics.drawRect(0, 0, graphics.getWidth(), graphics.getHeight(), color);
+    }
+
+    //使用图片绘制背景层
+    protected void drawBackGround(Graphics graphics, String fileName) {
+        Pixmap pixmap = graphics.newPixmap(fileName, Graphics.PixmapFormat.RGB565);
+        graphics.drawPixmap(pixmap, 0, 0);
     }
 
     //绘制层次中的精灵
