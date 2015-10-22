@@ -60,14 +60,18 @@ public class Layer {
     }
 
     //使用颜色绘制背景层
-    protected void drawBackGround(Graphics graphics, int color) {
+    public void drawBackGround(Graphics graphics, int color) {
         graphics.drawRect(0, 0, graphics.getWidth(), graphics.getHeight(), color);
     }
 
     //使用图片绘制背景层
-    protected void drawBackGround(Graphics graphics, String fileName) {
+    public void drawBackGround(Graphics graphics, String fileName) {
         Pixmap pixmap = graphics.newPixmap(fileName, Graphics.PixmapFormat.RGB565);
         graphics.drawPixmap(pixmap, 0, 0);
+    }
+
+    public void drawText(Graphics graphics, String text, int x, int y, float size,int color) {
+        graphics.drawText(text, x, y, size, color);
     }
 
     //绘制层次中的精灵

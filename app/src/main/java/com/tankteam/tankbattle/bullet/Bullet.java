@@ -19,7 +19,8 @@ public class Bullet extends Sprite{
     //添加其他属性
 
     public Bullet(Pixmap pixmap, BulletType bulletType, Tank tank) {
-        super(pixmap);
+        super();
+        super.setPixmap(pixmap);
         this.bulletType = bulletType;
         this.direction = tank.getDirection();
     }

@@ -18,4 +18,16 @@ public class coreTestActivity extends GameActivity {
     public Scene getStartScene() {
         return new MainMenu(this);
     }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+    }
+
+
 }

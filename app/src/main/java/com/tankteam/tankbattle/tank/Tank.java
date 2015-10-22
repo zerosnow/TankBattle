@@ -29,7 +29,8 @@ public abstract class Tank extends Sprite {
     protected boolean isAlive;
 
     protected Tank(Pixmap pixmap) {
-        super(pixmap);
+        super();
+        super.setPixmap(pixmap);
         currentFireCooling = 0;
         isAlive = true;
     }

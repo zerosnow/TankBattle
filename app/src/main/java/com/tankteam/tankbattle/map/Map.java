@@ -16,7 +16,8 @@ public class Map extends Sprite{
 
 
     public Map(Pixmap pixmap, MapType mapType) {
-        super(pixmap);
+        super();
+        super.setPixmap(pixmap);
         this.mapType = mapType;
 
     }

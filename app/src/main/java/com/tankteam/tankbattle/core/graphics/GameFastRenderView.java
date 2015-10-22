@@ -51,16 +51,19 @@ public class GameFastRenderView extends SurfaceView implements Runnable {
             if (!holder.getSurface().isValid())
                 continue;
             float deltaTime = (System.nanoTime()-startTime)/1000000000.0f;
-            startTime = System.nanoTime();
 
-            game.getCurrentScene().update(deltaTime);
-            game.getCurrentScene().present();
+            if (deltaTime > 1.0f / 60) {
+                startTime = System.nanoTime();
+                framebuffer.eraseColor(0);
+                game.getCurrentScene().update(deltaTime);
+                game.getCurrentScene().present();
 
-            Canvas canvas = holder.lockCanvas();
-            canvas.getClipBounds(dstRect);
-            canvas.drawBitmap(framebuffer, null, dstRect, null);
-            holder.unlockCanvasAndPost(canvas);
-
+                Canvas canvas = holder.lockCanvas();
+                canvas.getClipBounds(dstRect);
+                canvas.drawRGB(0, 0, 0);
+                canvas.drawBitmap(framebuffer, null, dstRect, null);
+                holder.unlockCanvasAndPost(canvas);
+            }
         }
     }
 }

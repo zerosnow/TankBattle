@@ -19,13 +19,15 @@ public interface Graphics {
 
     void drawRect(int x, int y, int width, int height, int color);
 
+    void drawColor(int color);
+
     //x,y为相对屏幕左上角的坐标，src为pixmap中指定的矩形区域
     void drawPixmap(Pixmap pixmap, int x, int y, int srcX, int srcY, int srcWidth, int srcHeight);
 
     //默认为整个pixmap
     void drawPixmap(Pixmap pixmap, int x, int y);
 
-    void drawText(String text, int x, int y, int color);
+    void drawText(String text, int x, int y, float size, int color);
 
     int getWidth();
 

@@ -16,5 +16,4 @@ public interface Game {
     void setScene(Scene scene);
     Scene getCurrentScene();
     Scene getStartScene();
-
 }

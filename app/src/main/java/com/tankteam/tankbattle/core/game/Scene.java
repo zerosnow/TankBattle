@@ -1,5 +1,6 @@
 package com.tankteam.tankbattle.core.game;
 
+import com.tankteam.tankbattle.core.Input.Input;
 import com.tankteam.tankbattle.core.graphics.Graphics;
 
 /**

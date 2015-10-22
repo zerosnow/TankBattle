@@ -99,6 +99,11 @@ public class GameGraphics implements Graphics {
     }
 
     @Override
+    public void drawColor(int color) {
+        canvas.drawColor(color);
+    }
+
+    @Override
     public void drawPixmap(Pixmap pixmap, int x, int y, int srcX, int srcY, int srcWidth, int srcHeight) {
         srcRect.left = srcX;
         srcRect.top = srcY;
@@ -117,8 +122,10 @@ public class GameGraphics implements Graphics {
     }
 
     @Override
-    public void drawText(String text, int x, int y, int color) {
+    public void drawText(String text, int x, int y, float size, int color) {
         paint.setColor(color);
+        paint.setTextSize(size);
+        paint.setTextAlign(Paint.Align.CENTER);
         canvas.drawText(text, x, y, paint);
     }
 

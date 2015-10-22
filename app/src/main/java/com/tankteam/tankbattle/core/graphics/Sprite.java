@@ -29,9 +29,8 @@ public abstract class Sprite extends Object{
     //碰撞标志
     protected boolean canCollition = false;
 
-    protected Sprite(Pixmap pixmap) {
+    protected Sprite() {
         super();
-        this.pixmap = pixmap;
     }
 
     //消亡调用的方法
@@ -59,6 +58,11 @@ public abstract class Sprite extends Object{
     public void setVelocity(int vx, int vy) {
         this.vx = vx;
         this.vy = vy;
+    }
+
+    //设置贴图
+    public void setPixmap(Pixmap pixmap) {
+        this.pixmap = pixmap;
     }
 
     //是否存活

@@ -23,7 +23,7 @@ import com.tankteam.tankbattle.core.graphics.Graphics;
 /**
  * Created by leiyong on 15/10/15.
  */
-public abstract class GameActivity extends AppCompatActivity implements Game {
+public abstract class GameActivity extends Activity implements Game {
     private static final int  designResolutionWidth = 640;
     private static final int designResolutionHeight = 960;
     GameFastRenderView renderView;
@@ -32,12 +32,12 @@ public abstract class GameActivity extends AppCompatActivity implements Game {
     Input input;
     FileIO fileIO;
     Scene scene;
-    PowerManager.WakeLock wakeLock;
+    //PowerManager.WakeLock wakeLock;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        
+
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         boolean isLandscape = getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE;
@@ -55,14 +55,14 @@ public abstract class GameActivity extends AppCompatActivity implements Game {
         scene = getStartScene();
         setContentView(renderView);
 
-        PowerManager powerManager = (PowerManager)getSystemService(Context.POWER_SERVICE);
-        wakeLock = powerManager.newWakeLock(PowerManager.FULL_WAKE_LOCK, "GLGAME");
+        //PowerManager powerManager = (PowerManager)getSystemService(Context.POWER_SERVICE);
+        //wakeLock = powerManager.newWakeLock(PowerManager.FULL_WAKE_LOCK, "GLGAME");
     }
 
     @Override
     public void onResume() {
         super.onResume();
-        wakeLock.acquire();
+        //wakeLock.acquire();
         scene.resume();
         renderView.resume();
     }
@@ -70,7 +70,7 @@ public abstract class GameActivity extends AppCompatActivity implements Game {
     @Override
     public void onPause() {
         super.onPause();
-        wakeLock.release();
+        //wakeLock.release();
         renderView.pause();
         scene.pause();
 
