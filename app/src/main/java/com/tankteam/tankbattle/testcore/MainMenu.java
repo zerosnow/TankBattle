@@ -1,5 +1,7 @@
 package com.tankteam.tankbattle.testcore;
 
+import android.graphics.Rect;
+
 import com.tankteam.tankbattle.Assets;
 import com.tankteam.tankbattle.core.Input.Input;
 import com.tankteam.tankbattle.core.game.Game;
@@ -31,6 +33,8 @@ public class MainMenu extends Scene {
     public void resume() {
         //以后使用异步加载,新线程
         Assets.enemyTank_enemy1R = game.getGraphics().newPixmap("image/enemyTank/enemy1R.png", Graphics.PixmapFormat.RGB565);
+        Assets.music_add = game.getAudio().newSound("music/add.wav");
+        Assets.music_blast = game.getAudio().newSound("music/blast.wav");
         isLoading = false;
     }
 
@@ -51,7 +55,7 @@ public class MainMenu extends Scene {
         Layer loading = this.getLayer(1);
         String loadingText = "加载中...";
         if (!isLoading)
-            loadingText = "加载完毕,按任意键继续...";
+            loadingText = "加载完毕,按此处继续...";
         loading.drawText(game.getGraphics(), loadingText, game.getGraphics().getWidth()/2, game.getGraphics().getHeight()/2, 50, 0xffff0000);
         super.present();
     }
@@ -63,7 +67,12 @@ public class MainMenu extends Scene {
         for (int i=0;i<len;i++) {
             Input.TouchEvent event = touchEvents.get(i);
             if (event.type == Input.TouchEvent.TOUCH_UP) {
-                game.setScene(new testScene(game));
+                Rect rect = new Rect(game.getGraphics().getWidth()/2-100, game.getGraphics().getHeight()/2-25,
+                        game.getGraphics().getWidth()/2+100, game.getGraphics().getHeight()/2+25);
+                if (game.isInRect(event.x, event.y, rect)) {
+                    game.setScene(new testScene(game));
+                    Assets.music_add.play(1);
+                }
             }
         }
     }

@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.res.Configuration;
 import android.graphics.Bitmap;
+import android.graphics.Rect;
 import android.os.Bundle;
 import android.os.PowerManager;
 import android.support.v7.app.AppCompatActivity;
@@ -112,5 +113,11 @@ public abstract class GameActivity extends Activity implements Game {
     @Override
     public Scene getCurrentScene() {
         return scene;
+    }
+
+    public boolean isInRect(int x, int y, Rect rect) {
+        if (x > rect.left && x < rect.right && y > rect.top && y <rect.bottom)
+            return true;
+        return false;
     }
 }

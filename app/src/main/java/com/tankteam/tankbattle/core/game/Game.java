@@ -1,5 +1,7 @@
 package com.tankteam.tankbattle.core.game;
 
+import android.graphics.Rect;
+
 import com.tankteam.tankbattle.core.Input.Input;
 import com.tankteam.tankbattle.core.audio.Audio;
 import com.tankteam.tankbattle.core.fileIO.FileIO;
@@ -16,4 +18,5 @@ public interface Game {
     void setScene(Scene scene);
     Scene getCurrentScene();
     Scene getStartScene();
+    boolean isInRect(int x, int y, Rect rect);
 }
