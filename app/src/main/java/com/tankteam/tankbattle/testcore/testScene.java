@@ -38,7 +38,7 @@ public class testScene extends Scene {
         for (int i=0;i<len;i++) {
             Input.TouchEvent event = touchEvents.get(i);
             if (event.type == Input.TouchEvent.TOUCH_UP) {
-                game.setScene(game.getStartScene());
+                ((Tanktest)(getLayer(0).getSprite(0))).kill();
             }
         }
     }

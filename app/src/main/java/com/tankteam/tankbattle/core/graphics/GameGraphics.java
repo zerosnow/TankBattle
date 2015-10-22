@@ -74,6 +74,10 @@ public class GameGraphics implements Graphics {
         return new GamePixmap(bitmap, format);
     }
 
+    public Animation newAnimation(Pixmap[] pixmaps) {
+        return new Animation(this, pixmaps);
+    }
+
     @Override
     public void clear(int color) {
         canvas.drawRGB((color & 0xff0000)>>16, (color & 0xff00)>>8, (color & 0xff));

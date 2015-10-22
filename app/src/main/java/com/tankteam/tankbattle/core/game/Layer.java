@@ -47,9 +47,8 @@ public class Layer {
     //清除已死亡的精灵
     protected void removeDead() {
         for (int i=0;i<gameObjects.size();i++)
-            if(gameObjects.get(i) != null)
-                while (gameObjects.get(i) != null && !gameObjects.get(i).isAlive())
-                    gameObjects.remove(i);
+            if (gameObjects.get(i) != null && !gameObjects.get(i).isAlive())
+                gameObjects.remove(i);
     }
 
     //更新层次中的精灵

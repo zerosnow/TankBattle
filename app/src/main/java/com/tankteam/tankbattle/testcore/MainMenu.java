@@ -35,6 +35,12 @@ public class MainMenu extends Scene {
         Assets.enemyTank_enemy1R = game.getGraphics().newPixmap("image/enemyTank/enemy1R.png", Graphics.PixmapFormat.RGB565);
         Assets.music_add = game.getAudio().newSound("music/add.wav");
         Assets.music_blast = game.getAudio().newSound("music/blast.wav");
+
+        //动画加载
+        Assets.animation_blast = new Pixmap[8];
+        for (int i=1;i<=8;i++)
+            Assets.animation_blast[i-1] = game.getGraphics().newPixmap("animation/blast/blast"+i+".png", Graphics.PixmapFormat.RGB565);
+        Assets.blast = game.getGraphics().newAnimation(Assets.animation_blast);
         isLoading = false;
     }
 
@@ -67,8 +73,8 @@ public class MainMenu extends Scene {
         for (int i=0;i<len;i++) {
             Input.TouchEvent event = touchEvents.get(i);
             if (event.type == Input.TouchEvent.TOUCH_UP) {
-                Rect rect = new Rect(game.getGraphics().getWidth()/2-100, game.getGraphics().getHeight()/2-25,
-                        game.getGraphics().getWidth()/2+100, game.getGraphics().getHeight()/2+25);
+                Rect rect = new Rect(game.getGraphics().getWidth()/2-200, game.getGraphics().getHeight()/2-50,
+                        game.getGraphics().getWidth()/2+200, game.getGraphics().getHeight()/2+50);
                 if (game.isInRect(event.x, event.y, rect)) {
                     game.setScene(new testScene(game));
                     Assets.music_add.play(1);

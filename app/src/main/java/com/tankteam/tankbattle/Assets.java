@@ -1,6 +1,7 @@
 package com.tankteam.tankbattle;
 
 import com.tankteam.tankbattle.core.audio.Sound;
+import com.tankteam.tankbattle.core.graphics.Animation;
 import com.tankteam.tankbattle.core.graphics.Pixmap;
 
 /**
@@ -38,6 +39,8 @@ public class Assets {
     public static Sound music_start;
 
 
-
+    //动画
+    public static Pixmap[] animation_blast;
+    public static Animation blast;
 
 }

@@ -31,6 +31,12 @@ public class Tanktest extends Sprite {
         x += vx * deltaTime;
     }
 
+    public void kill() {
+        Assets.blast.play(0.5f, x, 0);
+        Assets.music_blast.play(1);
+        this.remove();
+    }
+
 
     @Override
     public boolean collision(Sprite sprite) {

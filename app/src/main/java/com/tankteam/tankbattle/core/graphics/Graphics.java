@@ -8,7 +8,9 @@ public interface Graphics {
         ARGB8888, ARGB4444, RGB565
     }
     //使用JPEG或png加载一个图像
-    public Pixmap newPixmap(String fileName, PixmapFormat format);
+    Pixmap newPixmap(String fileName, PixmapFormat format);
+    //使用Pixmap数组构造一个动画
+    Animation newAnimation(Pixmap[] pixmaps);
 
     //使用给定color清除整个缓冲区的颜色
     void clear(int color);
