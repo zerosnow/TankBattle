@@ -5,6 +5,7 @@ import com.tankteam.tankbattle.core.Input.Input;
 import com.tankteam.tankbattle.core.game.Game;
 import com.tankteam.tankbattle.core.game.Layer;
 import com.tankteam.tankbattle.core.game.Scene;
+import com.tankteam.tankbattle.core.graphics.CommonSprite;
 import com.tankteam.tankbattle.core.graphics.Graphics;
 import com.tankteam.tankbattle.core.graphics.Pixmap;
 
@@ -29,6 +30,8 @@ public class MainScene extends Scene {
         //背景图加载
         Assets.background = game.getGraphics().newPixmap("image/background/background.png", Graphics.PixmapFormat.RGB565);
         Assets.background_over = game.getGraphics().newPixmap("image/background/over.png", Graphics.PixmapFormat.RGB565);
+        Assets.background_mainmenu = game.getGraphics().newPixmap("image/background/mainmenu.png", Graphics.PixmapFormat.RGB565);
+
 
         //子弹加载
         Assets.bullet_enemymissile = game.getGraphics().newPixmap("image/bullet/enemymissile.png", Graphics.PixmapFormat.RGB565);
@@ -117,7 +120,8 @@ public class MainScene extends Scene {
     @Override
     public void resume() {
         loadRes();
-
+        backgroundLayer.add(new CommonSprite(Assets.background, 0, 0));
+        mainMenuLayer.add(new CommonSprite(Assets.background_mainmenu, 320, 200));
     }
 
     @Override

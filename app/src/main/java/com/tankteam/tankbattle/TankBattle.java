@@ -2,11 +2,9 @@ package com.tankteam.tankbattle;
 
 import android.os.Bundle;
 
-import com.tankteam.tankbattle.core.game.Game;
 import com.tankteam.tankbattle.core.game.GameActivity;
 import com.tankteam.tankbattle.core.game.Scene;
 import com.tankteam.tankbattle.scenes.MainScene;
-import com.tankteam.tankbattle.testcore.MainMenu;
 
 /**
  * Created by leiyong on 15/10/26.

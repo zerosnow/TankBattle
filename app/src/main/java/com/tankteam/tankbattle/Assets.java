@@ -11,6 +11,7 @@ public class Assets {
     //背景图
     public static Pixmap background;
     public static Pixmap background_over;
+    public static Pixmap background_mainmenu;
 
     //子弹图
     public static Pixmap bullet_enemymissile;
