@@ -90,11 +90,11 @@ public class MainScene extends Scene {
     }
 
     public void update(float deltaTime) {
-        InputDeal();
+        inputDeal();
         super.update(deltaTime);
     }
 
-    private void InputDeal() {
+    private void inputDeal() {
 
     }
 

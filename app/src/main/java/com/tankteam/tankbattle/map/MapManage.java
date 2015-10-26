@@ -1,6 +1,7 @@
 package com.tankteam.tankbattle.map;
 
 import com.tankteam.tankbattle.Manage;
+import com.tankteam.tankbattle.core.game.Layer;
 import com.tankteam.tankbattle.core.graphics.Pixmap;
 
 import java.util.ArrayList;
@@ -16,6 +17,8 @@ public class MapManage extends Manage {
         }
         return mapManage;
     }
+    //当前关卡信息
+    private short[][] level;
 
     //最大同时存在地图块数
     private static final int MAX_EXIST_MAP = 100;
@@ -28,9 +31,24 @@ public class MapManage extends Manage {
         mapList = new ArrayList<Map>(MAX_EXIST_MAP);
     }
 
+    public void InitMap(int id, Layer maplayer) {
+        int width = MapData.getInstance().getScreenWidth();
+        int height = MapData.getInstance().getScreenHeight();
+        level = MapData.getInstance().getLevelById(id);
+
+        for (int i=0;i<height;i++) {
+            for (int j=0;j<width;j++) {
+                if (level[i][j] != 0) {
+                    maplayer.add(CreateMap(level[i][j], i, j));
+                }
+            }
+        }
+
+    }
+
     //创建地图块
-    public Map CreateMap(Pixmap pixmap, Map.MapType mapType) {
-        Map map = new Map(pixmap, mapType);
+    public Map CreateMap(short mapType, int x, int y) {
+        Map map = new Map(mapType, x, y);
         mapList.add(map);
         return map;
     }

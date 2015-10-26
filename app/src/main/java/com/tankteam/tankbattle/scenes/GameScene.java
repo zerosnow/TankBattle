@@ -11,19 +11,19 @@ import com.tankteam.tankbattle.map.MapManage;
  */
 public class GameScene extends Scene {
     private static final int MAIN_LAYER = 4;
-    private static final int MAIN_SPRITE = 32;
+    private static final int TANK_SPRITE = 10;
+    private static final int BULLET_SPRITE = 50;
+    private static final int MAP_SPRITE = 480;
 
-    private Layer mapLayer;
     private Layer tankLayer;
     private Layer bulletLayer;
-    private Layer grassLayer;
+    private Layer mapLayer;
 
     public GameScene(Game game) {
-        super(game, MAIN_LAYER, MAIN_SPRITE);
-        mapLayer = this.getLayer(0);
-        tankLayer = this.getLayer(1);
-        bulletLayer = this.getLayer(2);
-        grassLayer = this.getLayer(3);
+        super(game, MAIN_LAYER, new int[]{TANK_SPRITE, BULLET_SPRITE, MAP_SPRITE});
+        tankLayer = this.getLayer(0);
+        bulletLayer = this.getLayer(1);
+        mapLayer = this.getLayer(2);
     }
 
     public void update(float deltaTime) {
