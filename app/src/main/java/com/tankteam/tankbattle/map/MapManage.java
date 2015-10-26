@@ -30,7 +30,9 @@ public class MapManage extends Manage {
 
     //创建地图块
     public Map CreateMap(Pixmap pixmap, Map.MapType mapType) {
-        return null;
+        Map map = new Map(pixmap, mapType);
+        mapList.add(map);
+        return map;
     }
 
     //添加更多方法

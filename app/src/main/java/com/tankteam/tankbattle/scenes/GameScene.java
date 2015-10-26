@@ -1,8 +1,10 @@
 package com.tankteam.tankbattle.scenes;
 
+import com.tankteam.tankbattle.core.Input.Input;
 import com.tankteam.tankbattle.core.game.Game;
 import com.tankteam.tankbattle.core.game.Layer;
 import com.tankteam.tankbattle.core.game.Scene;
+import com.tankteam.tankbattle.map.MapManage;
 
 /**
  * Created by leiyong on 15/10/26.
@@ -24,15 +26,30 @@ public class GameScene extends Scene {
         grassLayer = this.getLayer(3);
     }
 
+    public void update(float deltaTime) {
+        inputDeal();
+        super.update(deltaTime);
+    }
+
+    public void present() {
+        super.present();
+    }
+
+    private void inputDeal() {
+
+    }
 
 
     @Override
     public void pause() {
-
     }
 
     @Override
     public void resume() {
+        initMap();
+    }
+
+    private void initMap() {
 
     }
 
