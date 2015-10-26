@@ -50,7 +50,7 @@ public class GameScene extends Scene {
     }
 
     private void initMap() {
-
+        //初始化地图
     }
 
     @Override
