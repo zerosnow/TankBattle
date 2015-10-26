@@ -26,6 +26,15 @@ public class MainScene extends Scene {
 
     //加载图片,声音等
     private void loadRes() {
+        //背景图加载
+        Assets.background = game.getGraphics().newPixmap("image/background/background.png", Graphics.PixmapFormat.RGB565);
+        Assets.background_over = game.getGraphics().newPixmap("image/background/over.png", Graphics.PixmapFormat.RGB565);
+
+        //子弹加载
+        Assets.bullet_enemymissile = game.getGraphics().newPixmap("image/bullet/enemymissile.png", Graphics.PixmapFormat.RGB565);
+        Assets.bullet_tankmissile = game.getGraphics().newPixmap("image/bullet/tankmissile.png", Graphics.PixmapFormat.RGB565);
+
+
         //敌方坦克加载
         Assets.enemyTank_enemy1R = game.getGraphics().newPixmap("image/enemyTank/enemy1R.png", Graphics.PixmapFormat.RGB565);
         Assets.enemyTank_enemy1L = game.getGraphics().newPixmap("image/enemyTank/enemy1L.png", Graphics.PixmapFormat.RGB565);
@@ -58,15 +67,46 @@ public class MainScene extends Scene {
         Assets.ex_enemyTank_enemy3U = game.getGraphics().newPixmap("image/enemyTank/exenemy3U.png", Graphics.PixmapFormat.RGB565);
         Assets.ex_enemyTank_enemy3D = game.getGraphics().newPixmap("image/enemyTank/exenemy3D.png", Graphics.PixmapFormat.RGB565);
 
+        //玩家坦克图加载
+        Assets.playerTank_p1tankR = game.getGraphics().newPixmap("image/playerTank/p1tankR.png", Graphics.PixmapFormat.RGB565);
+        Assets.playerTank_p1tankL = game.getGraphics().newPixmap("image/playerTank/p1tankL.png", Graphics.PixmapFormat.RGB565);
+        Assets.playerTank_p1tankU = game.getGraphics().newPixmap("image/playerTank/p1tankU.png", Graphics.PixmapFormat.RGB565);
+        Assets.playerTank_p1tankD = game.getGraphics().newPixmap("image/playerTank/p1tankD.png", Graphics.PixmapFormat.RGB565);
+
+        //地图块加载
+        Assets.tileMap_grass = game.getGraphics().newPixmap("image/tileMap/grass.png", Graphics.PixmapFormat.RGB565);
+        Assets.tileMap_steel = game.getGraphics().newPixmap("image/tileMap/steel.png", Graphics.PixmapFormat.RGB565);
+        Assets.tileMap_symbol = game.getGraphics().newPixmap("image/tileMap/symbol.png", Graphics.PixmapFormat.RGB565);
+        Assets.tileMap_wall = game.getGraphics().newPixmap("image/tileMap/wall.png", Graphics.PixmapFormat.RGB565);
+        Assets.tileMap_water = game.getGraphics().newPixmap("image/tileMap/water.png", Graphics.PixmapFormat.RGB565);
+
+        //宝物图加载
+        Assets.treasure_bomb = game.getGraphics().newPixmap("image/treasure/bomb.png", Graphics.PixmapFormat.RGB565);
+        Assets.treasure_destory = game.getGraphics().newPixmap("image/treasure/destory.png", Graphics.PixmapFormat.RGB565);
+        Assets.treasure_mintank = game.getGraphics().newPixmap("image/treasure/mintank.png", Graphics.PixmapFormat.RGB565);
+        Assets.treasure_star = game.getGraphics().newPixmap("image/treasure/star.png", Graphics.PixmapFormat.RGB565);
+        Assets.treasure_timer = game.getGraphics().newPixmap("image/treasure/timer.png", Graphics.PixmapFormat.RGB565);
+
+
         //声音加载
         Assets.music_add = game.getAudio().newSound("music/add.wav");
         Assets.music_blast = game.getAudio().newSound("music/blast.wav");
+        Assets.music_fire = game.getAudio().newSound("music/fire.wav");
+        Assets.music_hit = game.getAudio().newSound("music/hit.wav");
+        Assets.music_start = game.getAudio().newSound("music/start.wav");
+
 
         //动画加载
         Assets.animation_blast = new Pixmap[8];
         for (int i=1;i<=8;i++)
             Assets.animation_blast[i-1] = game.getGraphics().newPixmap("animation/blast/blast"+i+".png", Graphics.PixmapFormat.RGB565);
         Assets.blast = game.getGraphics().newAnimation(Assets.animation_blast);
+        Assets.animation_born = new Pixmap[4];
+        for (int i=1;i<=4;i++)
+            Assets.animation_born[i-1] = game.getGraphics().newPixmap("animation/born/born"+i+".png", Graphics.PixmapFormat.RGB565);
+        Assets.born = game.getGraphics().newAnimation(Assets.animation_born);
+
+
     }
 
     @Override

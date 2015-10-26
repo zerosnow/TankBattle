@@ -9,10 +9,8 @@ import com.tankteam.tankbattle.core.graphics.Pixmap;
  */
 public class Assets {
     //背景图
-    public static Pixmap background_title;
+    public static Pixmap background;
     public static Pixmap background_over;
-    public static Pixmap background_select;
-    public static Pixmap background_selecttank;
 
     //子弹图
     public static Pixmap bullet_enemymissile;
@@ -59,8 +57,18 @@ public class Assets {
     public static Pixmap playerTank_p1tankU;
 
     //地图
+    public static Pixmap tileMap_grass;
+    public static Pixmap tileMap_steel;
+    public static Pixmap tileMap_symbol;
+    public static Pixmap tileMap_wall;
+    public static Pixmap tileMap_water;
 
     //宝物图
+    public static Pixmap treasure_bomb;
+    public static Pixmap treasure_destory;
+    public static Pixmap treasure_mintank;
+    public static Pixmap treasure_star;
+    public static Pixmap treasure_timer;
 
     //声音
     public static Sound music_add;
@@ -73,5 +81,8 @@ public class Assets {
     //动画
     public static Pixmap[] animation_blast;
     public static Animation blast;
+
+    public static Pixmap[] animation_born;
+    public static Animation born;
 
 }
