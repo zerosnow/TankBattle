@@ -24,6 +24,8 @@ public class GameScene extends Scene {
         grassLayer = this.getLayer(3);
     }
 
+
+
     @Override
     public void pause() {
 
