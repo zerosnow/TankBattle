@@ -5,7 +5,7 @@ import com.tankteam.tankbattle.core.graphics.Animation;
 import com.tankteam.tankbattle.core.graphics.Pixmap;
 
 /**
- * Created by leiyong on 15/10/22.
+ * Created by leioooyong on 15/10/22.
  */
 public class Assets {
     //背景图
@@ -13,19 +13,50 @@ public class Assets {
     public static Pixmap background_over;
     public static Pixmap background_select;
     public static Pixmap background_selecttank;
+
     //子弹图
     public static Pixmap bullet_enemymissile;
     public static Pixmap bullet_tankmissile;
+
     //敌军坦克图
+    //蓝色
     public static Pixmap enemyTank_enemy1D;
     public static Pixmap enemyTank_enemy1L;
     public static Pixmap enemyTank_enemy1R;
     public static Pixmap enemyTank_enemy1U;
+    //绿色
+    public static Pixmap enemyTank_enemy2D;
+    public static Pixmap enemyTank_enemy2L;
+    public static Pixmap enemyTank_enemy2R;
+    public static Pixmap enemyTank_enemy2U;
+    //橙色
+    public static Pixmap enemyTank_enemy3D;
+    public static Pixmap enemyTank_enemy3L;
+    public static Pixmap enemyTank_enemy3R;
+    public static Pixmap enemyTank_enemy3U;
 
-
+    //加强版的敌方坦克（需要中两发子弹才会死亡，并且死亡时会有buff产生）
+    //银白色
+    public static Pixmap ex_enemyTank_enemy1D;
+    public static Pixmap ex_enemyTank_enemy1L;
+    public static Pixmap ex_enemyTank_enemy1R;
+    public static Pixmap ex_enemyTank_enemy1U;
+    //深蓝色
+    public static Pixmap ex_enemyTank_enemy2D;
+    public static Pixmap ex_enemyTank_enemy2L;
+    public static Pixmap ex_enemyTank_enemy2R;
+    public static Pixmap ex_enemyTank_enemy2U;
+    //粉红色
+    public static Pixmap ex_enemyTank_enemy3D;
+    public static Pixmap ex_enemyTank_enemy3L;
+    public static Pixmap ex_enemyTank_enemy3R;
+    public static Pixmap ex_enemyTank_enemy3U;
 
     //玩家坦克图
     public static Pixmap playerTank_p1tankD;
+    public static Pixmap playerTank_p1tankL;
+    public static Pixmap playerTank_p1tankR;
+    public static Pixmap playerTank_p1tankU;
 
     //地图
 
