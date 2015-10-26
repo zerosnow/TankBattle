@@ -14,6 +14,7 @@ public class Map extends Sprite{
     private static final short STEEL = 2;
     private static final short WATER = 3;
     private static final short GRASS = 4;
+    private static final short SYMBOL = 5;
 
     private short mapType;
     //添加其他属性
@@ -35,8 +36,10 @@ public class Map extends Sprite{
                 break;
             case GRASS:
                 break;
+            case SYMBOL:
+                break;
         }
-        
+
     }
 
     @Override
