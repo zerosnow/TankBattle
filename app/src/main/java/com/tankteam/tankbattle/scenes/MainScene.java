@@ -1,5 +1,7 @@
 package com.tankteam.tankbattle.scenes;
 
+import android.graphics.Rect;
+
 import com.tankteam.tankbattle.Assets;
 import com.tankteam.tankbattle.core.Input.Input;
 import com.tankteam.tankbattle.core.game.Game;
@@ -8,6 +10,9 @@ import com.tankteam.tankbattle.core.game.Scene;
 import com.tankteam.tankbattle.core.graphics.CommonSprite;
 import com.tankteam.tankbattle.core.graphics.Graphics;
 import com.tankteam.tankbattle.core.graphics.Pixmap;
+import com.tankteam.tankbattle.testcore.testScene;
+
+import java.util.List;
 
 /**
  * Created by leiyong on 15/10/26.
@@ -139,7 +144,19 @@ public class MainScene extends Scene {
     }
 
     private void inputDeal() {
+        List<Input.TouchEvent> touchEvents = game.getInput().getTouchEvents();
 
+        int len = touchEvents.size();
+        for (int i=0;i<len;i++) {
+            Input.TouchEvent event = touchEvents.get(i);
+            if (event.type == Input.TouchEvent.TOUCH_UP) {
+                Rect rect = new Rect(320, 200, 640, 280);
+                if (game.isInRect(event.x, event.y, rect)) {
+                    game.setScene(new GameScene(game));
+                    Assets.music_start.play(1);
+                }
+            }
+        }
     }
 
 }

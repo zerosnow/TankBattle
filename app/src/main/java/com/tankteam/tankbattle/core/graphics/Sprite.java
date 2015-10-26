@@ -26,8 +26,6 @@ public abstract class Sprite extends Object{
     private boolean killNextUpdate;
     //贴图
     protected Pixmap pixmap = null;
-    //碰撞标志
-    protected boolean canCollition = false;
 
     protected Sprite() {
         super();

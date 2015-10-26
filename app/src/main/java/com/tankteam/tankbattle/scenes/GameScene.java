@@ -10,7 +10,7 @@ import com.tankteam.tankbattle.map.MapManage;
  * Created by leiyong on 15/10/26.
  */
 public class GameScene extends Scene {
-    private static final int MAIN_LAYER = 4;
+    private static final int MAIN_LAYER = 3;
     private static final int TANK_SPRITE = 10;
     private static final int BULLET_SPRITE = 50;
     private static final int MAP_SPRITE = 480;
@@ -46,11 +46,11 @@ public class GameScene extends Scene {
 
     @Override
     public void resume() {
-        initMap();
+        MapManage.getInstance().InitMap(0, mapLayer);
     }
 
     private void initMap() {
-        //初始化地图
+
     }
 
     @Override

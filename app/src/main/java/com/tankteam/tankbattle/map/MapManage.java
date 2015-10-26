@@ -39,7 +39,7 @@ public class MapManage extends Manage {
         for (int i=0;i<height;i++) {
             for (int j=0;j<width;j++) {
                 if (level[i][j] != 0) {
-                    maplayer.add(CreateMap(level[i][j], i, j));
+                    maplayer.add(CreateMap(level[i][j], j, i));
                 }
             }
         }
