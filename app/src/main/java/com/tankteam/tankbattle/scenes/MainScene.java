@@ -10,7 +10,6 @@ import com.tankteam.tankbattle.core.game.Scene;
 import com.tankteam.tankbattle.core.graphics.CommonSprite;
 import com.tankteam.tankbattle.core.graphics.Graphics;
 import com.tankteam.tankbattle.core.graphics.Pixmap;
-import com.tankteam.tankbattle.testcore.testScene;
 
 import java.util.List;
 
