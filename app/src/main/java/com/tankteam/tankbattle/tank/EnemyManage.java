@@ -35,9 +35,10 @@ public class EnemyManage extends Manage{
         enemyTankList = new ArrayList<EnemyTank>(6);
     }
 
-    public EnemyTank CreateEnemy(Pixmap pixmap, EnemyTank.EnemyType type) {
+    public EnemyTank CreateEnemy() {
         if (currentTank < MAX_EXIST_TANK || tankInWarehouse > 0) {
-            EnemyTank enemyTank = new EnemyTank(pixmap, type);
+            EnemyTank.EnemyType type = EnemyTank.EnemyType.NORMAL;
+            EnemyTank enemyTank = new EnemyTank(type);
             if (enemyTankList.size() < 6) {
                 enemyTankList.add(enemyTank);
                 currentTank++;

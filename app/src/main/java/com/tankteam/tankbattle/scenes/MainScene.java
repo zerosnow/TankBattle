@@ -41,6 +41,13 @@ public class MainScene extends Scene {
         Assets.bullet_enemymissile = game.getGraphics().newPixmap("image/bullet/enemymissile.png", Graphics.PixmapFormat.RGB565);
         Assets.bullet_tankmissile = game.getGraphics().newPixmap("image/bullet/tankmissile.png", Graphics.PixmapFormat.RGB565);
 
+        //按钮加载
+        Assets.button_direcitonDown = game.getGraphics().newPixmap("image/button/direction_down", Graphics.PixmapFormat.RGB565);
+        Assets.button_direcitonLeft = game.getGraphics().newPixmap("image/button/direction_left", Graphics.PixmapFormat.RGB565);
+        Assets.button_direcitonRight = game.getGraphics().newPixmap("image/button/direction_right", Graphics.PixmapFormat.RGB565);
+        Assets.button_direcitonUp = game.getGraphics().newPixmap("image/button/direction_up", Graphics.PixmapFormat.RGB565);
+        Assets.button_fireButton = game.getGraphics().newPixmap("image/button/fire_button", Graphics.PixmapFormat.RGB565);
+
 
         //敌方坦克加载
         Assets.enemyTank_enemy1R = game.getGraphics().newPixmap("image/enemyTank/enemy1R.png", Graphics.PixmapFormat.RGB565);
@@ -149,10 +156,20 @@ public class MainScene extends Scene {
         for (int i=0;i<len;i++) {
             Input.TouchEvent event = touchEvents.get(i);
             if (event.type == Input.TouchEvent.TOUCH_UP) {
-                Rect rect = new Rect(320, 200, 640, 280);
+                Rect rect = new Rect(320, 200, 639, 439);
                 if (game.isInRect(event.x, event.y, rect)) {
-                    game.setScene(new GameScene(game));
-                    Assets.music_start.play(1);
+                    switch ((event.y - 200) / 80) {
+                        case 0:
+                            game.setScene(new GameScene(game));
+                            Assets.music_start.play(1);
+                            break;
+                        case 1:
+                            break;
+                        case 2:
+                            break;
+                        default:
+                            break;
+                    }
                 }
             }
         }

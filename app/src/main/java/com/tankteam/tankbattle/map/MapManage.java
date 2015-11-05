@@ -43,7 +43,6 @@ public class MapManage extends Manage {
                 }
             }
         }
-
     }
 
     //创建地图块

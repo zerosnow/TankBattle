@@ -2,6 +2,7 @@ package com.tankteam.tankbattle.tank;
 
 import android.graphics.Rect;
 
+import com.tankteam.tankbattle.Assets;
 import com.tankteam.tankbattle.bullet.Bullet;
 import com.tankteam.tankbattle.core.graphics.Pixmap;
 import com.tankteam.tankbattle.core.graphics.Sprite;
@@ -28,9 +29,8 @@ public abstract class Tank extends Sprite {
     //是否存活
     protected boolean isAlive;
 
-    protected Tank(Pixmap pixmap) {
+    protected Tank() {
         super();
-        super.setPixmap(pixmap);
         currentFireCooling = 0;
         isAlive = true;
     }
@@ -52,6 +52,10 @@ public abstract class Tank extends Sprite {
         return this.direction;
     }
     //死亡
-    public abstract void Dead();
+    public void kill() {
+        Assets.blast.play(0.5f, x, 0);
+        Assets.music_blast.play(1);
+        this.remove();
+    }
 
 }

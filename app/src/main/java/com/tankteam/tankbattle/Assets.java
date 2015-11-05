@@ -17,6 +17,13 @@ public class Assets {
     public static Pixmap bullet_enemymissile;
     public static Pixmap bullet_tankmissile;
 
+    //按钮图
+    public static Pixmap button_direcitonDown;
+    public static Pixmap button_direcitonLeft;
+    public static Pixmap button_direcitonRight;
+    public static Pixmap button_direcitonUp;
+    public static Pixmap button_fireButton;
+
     //敌军坦克图
     //蓝色
     public static Pixmap enemyTank_enemy1D;
