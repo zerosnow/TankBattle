@@ -29,6 +29,7 @@ public class Bullet extends Sprite{
         super();
         this.bulletList = bulletList;
         this.bulletType = bulletType;
+        this.width = this.height = 15;
         this.direction = tank.getDirection();
         switch (bulletType) {
             case HERO_NORMAL:

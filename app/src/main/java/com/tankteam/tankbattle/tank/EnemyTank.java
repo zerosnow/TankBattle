@@ -31,6 +31,7 @@ public class EnemyTank extends Tank {
         power = 1;
         fireCoolingTime = 1;
         y = 0;
+        this.width = this.height = 60;
         //根据type来设置属性
         switch (type) {
             //位置,贴图,血量,攻击力,状态,开火冷却等
