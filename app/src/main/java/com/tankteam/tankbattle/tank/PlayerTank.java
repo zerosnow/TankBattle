@@ -32,8 +32,8 @@ public class PlayerTank extends Tank{
     private PlayerTank(Pixmap pixmap) {
         super();
         super.setPixmap(pixmap);
-        x = 390;
-        y = 610;
+        x = 360;
+        y = 580;
         rank = 1;
         state = State.NORMAL;
         blood = 1;
@@ -75,22 +75,9 @@ public class PlayerTank extends Tank{
         if (currentFireCooling > 0)
             currentFireCooling -= deltaTime;
         if (isMoving == true) {
-            switch (direction) {
-                case UP:
-                    setVelocity(0, -40);
-                    break;
-                case DOWN:
-                    setVelocity(0, 40);
-                    break;
-                case LEFT:
-                    setVelocity(-40, 0);
-                    break;
-                case RIGHT:
-                    setVelocity(40, 0);
-                    break;
-            }
             x += vx * deltaTime;
             y += vy * deltaTime;
+            System.out.println(x + " " + y + " " + vx + " " + vy + " " + deltaTime);
         }
     }
 

@@ -8,15 +8,15 @@ import com.tankteam.tankbattle.core.game.Layer;
  */
 public abstract class Sprite extends Object{
     //屏幕坐标系的x,y坐标
-    public int x, y;
+    public float x, y;
     //屏幕坐标系的精灵的大小
     public int width, height;
     //x, y 轴放大后的速度值
-    public int vx, vy;
+    public float vx, vy;
     //扩大后的位移
     protected int x_scale, y_scale;
     //之前的位置
-    public int x_old, y_old;
+    public float x_old, y_old;
     //默认格式
     protected Graphics.PixmapFormat format = Graphics.PixmapFormat.RGB565;
 

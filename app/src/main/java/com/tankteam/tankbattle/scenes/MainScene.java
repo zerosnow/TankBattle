@@ -42,11 +42,11 @@ public class MainScene extends Scene {
         Assets.bullet_tankmissile = game.getGraphics().newPixmap("image/bullet/tankmissile.png", Graphics.PixmapFormat.RGB565);
 
         //按钮加载
-        Assets.button_direcitonDown = game.getGraphics().newPixmap("image/button/direction_down", Graphics.PixmapFormat.RGB565);
-        Assets.button_direcitonLeft = game.getGraphics().newPixmap("image/button/direction_left", Graphics.PixmapFormat.RGB565);
-        Assets.button_direcitonRight = game.getGraphics().newPixmap("image/button/direction_right", Graphics.PixmapFormat.RGB565);
-        Assets.button_direcitonUp = game.getGraphics().newPixmap("image/button/direction_up", Graphics.PixmapFormat.RGB565);
-        Assets.button_fireButton = game.getGraphics().newPixmap("image/button/fire_button", Graphics.PixmapFormat.RGB565);
+        Assets.button_direcitonDown = game.getGraphics().newPixmap("image/button/direction_down.png", Graphics.PixmapFormat.RGB565);
+        Assets.button_direcitonLeft = game.getGraphics().newPixmap("image/button/direction_left.png", Graphics.PixmapFormat.RGB565);
+        Assets.button_direcitonRight = game.getGraphics().newPixmap("image/button/direction_right.png", Graphics.PixmapFormat.RGB565);
+        Assets.button_direcitonUp = game.getGraphics().newPixmap("image/button/direction_up.png", Graphics.PixmapFormat.RGB565);
+        Assets.button_fireButton = game.getGraphics().newPixmap("image/button/fire_button.png", Graphics.PixmapFormat.RGB565);
 
 
         //敌方坦克加载

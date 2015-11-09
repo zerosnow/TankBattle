@@ -6,6 +6,7 @@ import com.tankteam.tankbattle.core.graphics.Pixmap;
 import com.tankteam.tankbattle.core.graphics.Sprite;
 
 import java.util.ArrayList;
+import java.util.Random;
 
 /**
  * Created by leiyong on 15/10/13.
@@ -26,6 +27,8 @@ public class EnemyManage extends Manage{
     //剩余的坦克数量
     private int tankInWarehouse;
 
+    private float createCoolTime = 0;
+
     ArrayList<EnemyTank> enemyTankList = null;
 
     private EnemyManage() {
@@ -35,18 +38,33 @@ public class EnemyManage extends Manage{
         enemyTankList = new ArrayList<EnemyTank>(6);
     }
 
-    public EnemyTank CreateEnemy() {
-        if (currentTank < MAX_EXIST_TANK || tankInWarehouse > 0) {
-            EnemyTank.EnemyType type = EnemyTank.EnemyType.NORMAL;
-            EnemyTank enemyTank = new EnemyTank(type);
-            if (enemyTankList.size() < 6) {
-                enemyTankList.add(enemyTank);
-                currentTank++;
-                tankInWarehouse--;
-                return enemyTank;
+    public EnemyTank CreateEnemy(float deltaTime) {
+        if (createCoolTime <= 0) {
+            if (currentTank < MAX_EXIST_TANK || tankInWarehouse > 0) {
+                if (enemyTankList.size() < 6) {
+                    EnemyTank.EnemyType type = EnemyTank.EnemyType.NORMAL;
+                    switch ((int)(Math.random()*3)) {
+                        case 0: break;
+                        case 1:
+                            type = EnemyTank.EnemyType.SENIOR;
+                            break;
+                        case 2:
+                            type = EnemyTank.EnemyType.STRONG;
+                            break;
+                        default:
+                            type = EnemyTank.EnemyType.NORMAL;
+                            break;
+                    }
+                    EnemyTank enemyTank = new EnemyTank(type, enemyTankList);
+                    enemyTankList.add(enemyTank);
+                    currentTank++;
+                    tankInWarehouse--;
+                    createCoolTime = 3;
+                    return enemyTank;
+                }
             }
-            return null;
         }
+        createCoolTime -= deltaTime;
         return null;
     }
 }

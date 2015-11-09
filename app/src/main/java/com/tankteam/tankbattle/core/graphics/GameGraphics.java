@@ -126,6 +126,11 @@ public class GameGraphics implements Graphics {
     }
 
     @Override
+    public void drawPixmap(Pixmap pixmap, float x, float y) {
+        canvas.drawBitmap(((GamePixmap)pixmap).bitmap, x, y, null);
+    }
+
+    @Override
     public void drawText(String text, int x, int y, float size, int color) {
         paint.setColor(color);
         paint.setTextSize(size);

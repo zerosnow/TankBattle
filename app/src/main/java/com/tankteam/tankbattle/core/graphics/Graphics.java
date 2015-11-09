@@ -29,6 +29,9 @@ public interface Graphics {
     //默认为整个pixmap
     void drawPixmap(Pixmap pixmap, int x, int y);
 
+    //扩展
+    void drawPixmap(Pixmap pixmap, float x, float y);
+
     void drawText(String text, int x, int y, float size, int color);
 
     int getWidth();

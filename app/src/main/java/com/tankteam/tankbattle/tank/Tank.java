@@ -53,7 +53,7 @@ public abstract class Tank extends Sprite {
     }
     //死亡
     public void kill() {
-        Assets.blast.play(0.5f, x, 0);
+        Assets.blast.play(0.5f, (int)x-30, (int)y-30);
         Assets.music_blast.play(1);
         this.remove();
     }

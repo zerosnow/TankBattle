@@ -27,6 +27,8 @@ public class GameScene extends Scene {
     private static final int MAP_SPRITE = 480;
     private static final int INPUT_LAYER = 5;
 
+    private static final int PLAYER_SPEED = 50;
+
     private Layer tankLayer;
     private Layer bulletLayer;
     private Layer mapLayer;
@@ -45,6 +47,8 @@ public class GameScene extends Scene {
 
     public void update(float deltaTime) {
         inputDeal();
+        EnemyTank enemyTank = EnemyManage.getInstance().CreateEnemy(deltaTime);
+        tankLayer.add(enemyTank);
         super.update(deltaTime);
     }
 
@@ -62,24 +66,28 @@ public class GameScene extends Scene {
                 Rect rect = new Rect(100, 540, 160, 640);
                 if (game.isInRect(event.x, event.y, rect)) {
                     playerTank.setMoving(true);
+                    playerTank.setVelocity(0, PLAYER_SPEED);
                     playerTank.setDirection(Tank.Direction.DOWN);
                     playerTank.setPixmap(Assets.playerTank_p1tankD);
                 }
                 rect.set(0, 440, 80, 540);
                 if (game.isInRect(event.x, event.y, rect)) {
                     playerTank.setMoving(true);
+                    playerTank.setVelocity(-PLAYER_SPEED, 0);
                     playerTank.setDirection(Tank.Direction.LEFT);
                     playerTank.setPixmap(Assets.playerTank_p1tankL);
                 }
                 rect.set(180, 440, 260, 540);
                 if (game.isInRect(event.x, event.y, rect)) {
                     playerTank.setMoving(true);
+                    playerTank.setVelocity(PLAYER_SPEED, 0);
                     playerTank.setDirection(Tank.Direction.RIGHT);
                     playerTank.setPixmap(Assets.playerTank_p1tankR);
                 }
                 rect.set(100, 340, 180, 440);
                 if (game.isInRect(event.x, event.y, rect)) {
                     playerTank.setMoving(true);
+                    playerTank.setVelocity(0, -PLAYER_SPEED);
                     playerTank.setDirection(Tank.Direction.UP);
                     playerTank.setPixmap(Assets.playerTank_p1tankU);
                 }
@@ -87,6 +95,8 @@ public class GameScene extends Scene {
                 if (game.isInRect(event.x, event.y, rect)) {
                     playerTank.fire();
                 }
+            } else if(event.type == Input.TouchEvent.TOUCH_UP) {
+                playerTank.setMoving(false);
             }
         }
     }
