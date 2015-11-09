@@ -51,9 +51,10 @@ public class MapManage extends Manage {
     }
 
 
+
     //创建地图块
     public Map CreateMap(short mapType, int x, int y) {
-        Map map = new Map(mapType, x, y);
+        Map map = new Map(mapType, x, y, mapList);
         mapList.add(map);
         return map;
     }

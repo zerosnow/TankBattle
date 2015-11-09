@@ -18,5 +18,7 @@ public interface Game {
     void setScene(Scene scene);
     Scene getCurrentScene();
     Scene getStartScene();
+    void onWin();
+    void onFail();
     boolean isInRect(int x, int y, Rect rect);
 }

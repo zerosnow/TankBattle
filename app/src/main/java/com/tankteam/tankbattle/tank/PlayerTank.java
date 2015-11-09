@@ -116,7 +116,6 @@ public class PlayerTank extends Tank{
     public boolean collision(EnemyManage enemyManage) {
         for (int i=0;i<enemyManage.getEnemyTankList().size();i++)
             if (collision(enemyManage.getEnemyTankList().get(i))) {
-                enemyManage.getEnemyTankList().get(i).kill();       //碰谁谁死23333
                 return true;
             }
         return false;

@@ -1,9 +1,14 @@
 package com.tankteam.tankbattle.tank;
 
+import android.app.Activity;
+import android.app.ActivityManager;
+
 import com.tankteam.tankbattle.Manage;
+import com.tankteam.tankbattle.TankBattle;
 import com.tankteam.tankbattle.core.graphics.Graphics;
 import com.tankteam.tankbattle.core.graphics.Pixmap;
 import com.tankteam.tankbattle.core.graphics.Sprite;
+import com.tankteam.tankbattle.scenes.GameScene;
 
 import java.util.ArrayList;
 import java.util.Random;
@@ -66,6 +71,9 @@ public class EnemyManage extends Manage{
                     createCoolTime = 3;
                     return enemyTank;
                 }
+            }
+            else if (currentTank == 0) {
+                TankBattle.getInstance().onWin();
             }
         }
         createCoolTime -= deltaTime;

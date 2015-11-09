@@ -20,6 +20,16 @@ public class coreTestActivity extends GameActivity {
     }
 
     @Override
+    public void onWin() {
+
+    }
+
+    @Override
+    public void onFail() {
+
+    }
+
+    @Override
     public void onResume() {
         super.onResume();
     }

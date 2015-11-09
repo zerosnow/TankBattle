@@ -103,7 +103,6 @@ public class EnemyTank extends Tank {
         if (!canMove()) {
             x -= vx * deltaTime;
             y -= vy * deltaTime;
-            this.kill();
         }
     }
 

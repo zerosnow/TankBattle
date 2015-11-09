@@ -5,6 +5,8 @@ import com.tankteam.tankbattle.core.graphics.Graphics;
 import com.tankteam.tankbattle.core.graphics.Pixmap;
 import com.tankteam.tankbattle.core.graphics.Sprite;
 
+import java.util.ArrayList;
+
 /**
  * Created by leiyong on 15/10/13.
  */
@@ -22,10 +24,12 @@ public class Map extends Sprite{
     public boolean canBulletCollition = true;
     public boolean canTankCollition = true;
     //添加其他属性
+    ArrayList<Map> mapList=null;
 
-    public Map(short mapType, int x, int y) {
+    public Map(short mapType, int x, int y, ArrayList<Map> mapList) {
         super();
         this.mapType = mapType;
+        this.mapList = mapList;
         this.width = this.height = 30;
         this.x = x * this.width+120;
         this.y = y * this.height+40;
@@ -53,6 +57,10 @@ public class Map extends Sprite{
 
     }
 
+    public short getMapType() {
+        return mapType;
+    }
+
     @Override
     public void draw(Graphics g) {
         g.drawPixmap(pixmap, x, y);
@@ -61,6 +69,11 @@ public class Map extends Sprite{
     @Override
     public void update(float deltaTime) {
 
+    }
+
+    public void remove() {
+        mapList.remove(this);
+        super.remove();
     }
 
     @Override
