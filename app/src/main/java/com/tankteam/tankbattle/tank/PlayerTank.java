@@ -54,6 +54,7 @@ public class PlayerTank extends Tank{
         if (currentFireCooling <= 0) {
             Bullet bullet = BulletManage.getInstance().CreateBullet(Bullet.BulletType.HERO_NORMAL, this);
             bulletLayer.add(bullet);
+            Assets.music_fire.play(1);
             currentFireCooling = fireCoolingTime;
         }
     }

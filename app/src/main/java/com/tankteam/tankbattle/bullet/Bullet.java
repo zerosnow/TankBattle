@@ -110,6 +110,8 @@ public class Bullet extends Sprite{
     }
 
     private boolean hit() {
+        if (x < 120 || x + width > 840 || y < 0 || y + height > 640)
+            return true;
         if (collision(MapManage.getInstance()))
             return true;
         if (this.bulletType == BulletType.ENEMY_NORMAL || this.bulletType == BulletType.ENEMY_STRONG)

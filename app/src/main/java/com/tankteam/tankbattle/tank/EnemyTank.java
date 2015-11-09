@@ -13,6 +13,8 @@ import com.tankteam.tankbattle.map.MapManage;
 import java.util.ArrayList;
 
 import static com.tankteam.tankbattle.tank.Tank.Direction.DOWN;
+import static com.tankteam.tankbattle.tank.Tank.Direction.LEFT;
+import static com.tankteam.tankbattle.tank.Tank.Direction.RIGHT;
 import static com.tankteam.tankbattle.tank.Tank.Direction.UP;
 
 /**
@@ -23,7 +25,11 @@ public class EnemyTank extends Tank {
         NORMAL, SENIOR, STRONG,
     }
     private EnemyType type;
+    private float moveTime;
+
     ArrayList<EnemyTank> enemyTankList;
+    int[] moveStrategy;
+    int whichStrategy;
 
     protected EnemyTank(EnemyType type, ArrayList<EnemyTank> enemyTankList) {
         super();
@@ -32,8 +38,11 @@ public class EnemyTank extends Tank {
         direction = Direction.DOWN;
         power = 1;
         fireCoolingTime = 1;
+        moveTime = 1;
         y = 0;
         this.width = this.height = 60;
+        whichStrategy = 0;
+        moveStrategy = Strategy.getInstance().getStrategy((int)(Math.random()*Strategy.getInstance().getSize()));
         //根据type来设置属性
         switch (type) {
             //位置,贴图,血量,攻击力,状态,开火冷却等
@@ -72,8 +81,9 @@ public class EnemyTank extends Tank {
     @Override
     public void fire() {
         if (currentFireCooling <= 0) {
-            Bullet bullet = BulletManage.getInstance().CreateBullet(Bullet.BulletType.HERO_NORMAL, this);
-            bulletLayer.add(bullet);
+            Bullet bullet = BulletManage.getInstance().CreateBullet(Bullet.BulletType.ENEMY_NORMAL, this);
+            this.bulletLayer.add(bullet);
+            Assets.music_fire.play(1);
             currentFireCooling = fireCoolingTime;
         }
     }
@@ -98,6 +108,93 @@ public class EnemyTank extends Tank {
     public void update(float deltaTime) {
         if (currentFireCooling > 0)
             currentFireCooling -= deltaTime;
+        if (moveTime <= 0) {
+            whichStrategy++;
+            if (whichStrategy >= moveStrategy.length)
+                whichStrategy = 0;                  //循环实行策略
+            moveTime = 2;
+        }
+        moveTime -= deltaTime;
+        switch (moveStrategy[whichStrategy]) {
+            case 1:
+                direction = UP;
+                switch (type) {
+                    case NORMAL:
+                        super.setPixmap(Assets.enemyTank_enemy1U);
+                        break;
+                    case SENIOR:
+                        super.setPixmap(Assets.enemyTank_enemy2U);
+                        break;
+                    case STRONG:
+                        super.setPixmap(Assets.enemyTank_enemy3U);
+                        break;
+                    default:
+                        super.setPixmap(Assets.enemyTank_enemy1U);
+                        break;
+                }
+                setVelocity(0 ,-50);
+                break;
+            case 2:
+                direction = DOWN;
+                switch (type) {
+                    case NORMAL:
+                        super.setPixmap(Assets.enemyTank_enemy1D);
+                        break;
+                    case SENIOR:
+                        super.setPixmap(Assets.enemyTank_enemy2D);
+                        break;
+                    case STRONG:
+                        super.setPixmap(Assets.enemyTank_enemy3D);
+                        break;
+                    default:
+                        super.setPixmap(Assets.enemyTank_enemy1D);
+                        break;
+                }
+                setVelocity(0 ,50);
+                break;
+            case 3:
+                direction = LEFT;
+                switch (type) {
+                    case NORMAL:
+                        super.setPixmap(Assets.enemyTank_enemy1L);
+                        break;
+                    case SENIOR:
+                        super.setPixmap(Assets.enemyTank_enemy2L);
+                        break;
+                    case STRONG:
+                        super.setPixmap(Assets.enemyTank_enemy3L);
+                        break;
+                    default:
+                        super.setPixmap(Assets.enemyTank_enemy1L);
+                        break;
+                }
+                setVelocity(-50 ,0);
+                break;
+            case 4:
+                direction = RIGHT;
+                switch (type) {
+                    case NORMAL:
+                        super.setPixmap(Assets.enemyTank_enemy1R);
+                        break;
+                    case SENIOR:
+                        super.setPixmap(Assets.enemyTank_enemy2R);
+                        break;
+                    case STRONG:
+                        super.setPixmap(Assets.enemyTank_enemy3R);
+                        break;
+                    default:
+                        super.setPixmap(Assets.enemyTank_enemy1R);
+                        break;
+                }
+                setVelocity(50 ,0);
+                break;
+            case 5:
+                fire();
+                moveTime = 0;
+                break;
+            default:
+                break;
+        }
         x += vx * deltaTime;
         y += vy * deltaTime;
         if (!canMove()) {
@@ -126,8 +223,8 @@ public class EnemyTank extends Tank {
     public boolean collision(Sprite sprite) {
         if (x == sprite.x && y == sprite.y)
             return false;
-        if (x < sprite.x + sprite.width && x + width > sprite.x
-                && y < sprite.y + sprite.height && y + height > sprite.y)
+        if (x < sprite.x + sprite.width - 2 && x + width > sprite.x + 2
+                && y < sprite.y + sprite.height - 2 && y + height > sprite.y + 2)
             return true;
         return false;
     }
@@ -144,4 +241,5 @@ public class EnemyTank extends Tank {
             if (mapList.get(i).canTankCollition && collision(mapList.get(i))) return true;
         return false;
     }
+
 }

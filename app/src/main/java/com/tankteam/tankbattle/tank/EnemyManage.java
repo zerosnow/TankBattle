@@ -65,6 +65,10 @@ public class EnemyManage extends Manage{
                             break;
                     }
                     EnemyTank enemyTank = new EnemyTank(type, enemyTankList);
+                    if (enemyTank.collision(this)) {
+                        enemyTank.remove();
+                        return null;
+                    }
                     enemyTankList.add(enemyTank);
                     currentTank++;
                     tankInWarehouse--;

@@ -48,8 +48,10 @@ public class GameScene extends Scene {
     public void update(float deltaTime) {
         inputDeal();
         EnemyTank enemyTank = EnemyManage.getInstance().CreateEnemy(deltaTime);
-        if (enemyTank != null)
+        if (enemyTank != null) {
+            enemyTank.setBulletLayer(bulletLayer);
             tankLayer.add(enemyTank);
+        }
         super.update(deltaTime);
     }
 
