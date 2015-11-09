@@ -7,6 +7,8 @@ import com.tankteam.tankbattle.core.game.Layer;
 import com.tankteam.tankbattle.core.graphics.Graphics;
 import com.tankteam.tankbattle.core.graphics.Pixmap;
 import com.tankteam.tankbattle.core.graphics.Sprite;
+import com.tankteam.tankbattle.map.Map;
+import com.tankteam.tankbattle.map.MapManage;
 
 import java.util.ArrayList;
 
@@ -52,7 +54,7 @@ public class EnemyTank extends Tank {
             case STRONG:
                 super.setPixmap(Assets.enemyTank_enemy3D);
                 bulletType = Bullet.BulletType.ENEMY_STRONG;
-                x = 810;
+                x = 780;
                 blood = 2;
                 setVelocity(0, 50);
                 break;
@@ -98,7 +100,23 @@ public class EnemyTank extends Tank {
             currentFireCooling -= deltaTime;
         x += vx * deltaTime;
         y += vy * deltaTime;
-        if (y > 540) this.kill();
+        if (!canMove()) {
+            x -= vx * deltaTime;
+            y -= vy * deltaTime;
+            this.kill();
+        }
+    }
+
+    private boolean canMove() {
+        if (x < 120 || x + width > 840 || y < 0 || y + height > 640)
+            return false;
+        if (collision(EnemyManage.getInstance()))
+            return false;
+        if (collision(MapManage.getInstance()))
+            return false;
+        if (collision(PlayerTank.getTank()))
+            return false;
+        return true;
     }
 
     public void setDirection(Direction direction) {
@@ -107,6 +125,24 @@ public class EnemyTank extends Tank {
 
     @Override
     public boolean collision(Sprite sprite) {
+        if (x == sprite.x && y == sprite.y)
+            return false;
+        if (x < sprite.x + sprite.width && x + width > sprite.x
+                && y < sprite.y + sprite.height && y + height > sprite.y)
+            return true;
+        return false;
+    }
+
+    public boolean collision(EnemyManage enemyManage) {
+        for (int i=0;i<enemyManage.getEnemyTankList().size();i++)
+            if (this != enemyManage.getEnemyTankList().get(i) && collision(enemyManage.getEnemyTankList().get(i))) return true;
+        return false;
+    }
+
+    public boolean collision(MapManage mapManage) {
+        ArrayList<Map> mapList = mapManage.getMapList();
+        for (int i=0;i<mapList.size();i++)
+            if (mapList.get(i).canTankCollition && collision(mapList.get(i))) return true;
         return false;
     }
 }

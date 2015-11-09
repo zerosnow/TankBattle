@@ -29,13 +29,17 @@ public class EnemyManage extends Manage{
 
     private float createCoolTime = 0;
 
-    ArrayList<EnemyTank> enemyTankList = null;
+    private ArrayList<EnemyTank> enemyTankList = null;
 
     private EnemyManage() {
         super();
         currentTank = 0;
         tankInWarehouse = 20;
         enemyTankList = new ArrayList<EnemyTank>(6);
+    }
+
+    public ArrayList<EnemyTank> getEnemyTankList() {
+        return enemyTankList;
     }
 
     public EnemyTank CreateEnemy(float deltaTime) {

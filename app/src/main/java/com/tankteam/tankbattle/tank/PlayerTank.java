@@ -7,6 +7,10 @@ import com.tankteam.tankbattle.core.game.Layer;
 import com.tankteam.tankbattle.core.graphics.Graphics;
 import com.tankteam.tankbattle.core.graphics.Pixmap;
 import com.tankteam.tankbattle.core.graphics.Sprite;
+import com.tankteam.tankbattle.map.Map;
+import com.tankteam.tankbattle.map.MapManage;
+
+import java.util.ArrayList;
 
 import static com.tankteam.tankbattle.tank.Tank.Direction.*;
 
@@ -70,8 +74,22 @@ public class PlayerTank extends Tank{
         if (isMoving == true) {
             x += vx * deltaTime;
             y += vy * deltaTime;
-            System.out.println(x + " " + y + " " + vx + " " + vy + " " + deltaTime);
+            //System.out.println(x + " " + y + " " + vx + " " + vy + " " + deltaTime);
         }
+        if (!canMove()) {
+            x -= vx * deltaTime;
+            y -= vy * deltaTime;
+        }
+    }
+
+    private boolean canMove() {
+        if (x < 120 || x + width > 840 || y < 0 || y + height > 640)
+            return false;
+        if (collision(EnemyManage.getInstance()))
+            return false;
+        if (collision(MapManage.getInstance()))
+            return false;
+        return true;
     }
 
     public void setMoving(boolean isMoving) {
@@ -89,6 +107,25 @@ public class PlayerTank extends Tank{
 
     @Override
     public boolean collision(Sprite sprite) {
+        if (x < sprite.x + sprite.width && x + width > sprite.x
+                && y < sprite.y + sprite.height && y + height > sprite.y)
+            return true;
+        return false;
+    }
+
+    public boolean collision(EnemyManage enemyManage) {
+        for (int i=0;i<enemyManage.getEnemyTankList().size();i++)
+            if (collision(enemyManage.getEnemyTankList().get(i))) {
+                enemyManage.getEnemyTankList().get(i).kill();       //碰谁谁死23333
+                return true;
+            }
+        return false;
+    }
+
+    public boolean collision(MapManage mapManage) {
+        ArrayList<Map> mapList = mapManage.getMapList();
+        for (int i=0;i<mapList.size();i++)
+            if (mapList.get(i).canTankCollition && collision(mapList.get(i))) return true;
         return false;
     }
 }

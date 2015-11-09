@@ -22,13 +22,18 @@ public class MapManage extends Manage {
 
     //最大同时存在地图块数
     private static final int MAX_EXIST_MAP = 100;
-    ArrayList<Map> mapList;
+
+    private ArrayList<Map> mapList;
 
     //添加其他属性
 
     private MapManage() {
         super();
         mapList = new ArrayList<Map>(MAX_EXIST_MAP);
+    }
+
+    public ArrayList<Map> getMapList() {
+        return mapList;
     }
 
     public void InitMap(int id, Layer maplayer) {
@@ -44,6 +49,7 @@ public class MapManage extends Manage {
             }
         }
     }
+
 
     //创建地图块
     public Map CreateMap(short mapType, int x, int y) {
