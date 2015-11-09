@@ -1,7 +1,9 @@
 package com.tankteam.tankbattle.map;
 
+import com.tankteam.tankbattle.Assets;
 import com.tankteam.tankbattle.Manage;
 import com.tankteam.tankbattle.core.game.Layer;
+import com.tankteam.tankbattle.core.graphics.CommonSprite;
 import com.tankteam.tankbattle.core.graphics.Pixmap;
 
 import java.util.ArrayList;
@@ -48,6 +50,8 @@ public class MapManage extends Manage {
                 }
             }
         }
+        maplayer.add(new CommonSprite(Assets.background1, 0, 0));
+        maplayer.add(new CommonSprite(Assets.background2, 840, 0));
     }
 
 

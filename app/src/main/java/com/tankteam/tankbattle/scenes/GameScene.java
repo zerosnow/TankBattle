@@ -114,10 +114,10 @@ public class GameScene extends Scene {
         playerTank.setBulletLayer(bulletLayer);
         tankLayer.add(playerTank);
         //添加输入按钮
-        inputLayer.add(new CommonSprite(Assets.button_direcitonDown, 100, 540));
-        inputLayer.add(new CommonSprite(Assets.button_direcitonLeft, 0, 440));
-        inputLayer.add(new CommonSprite(Assets.button_direcitonRight, 180, 440));
-        inputLayer.add(new CommonSprite(Assets.button_direcitonUp, 100, 340));
+        inputLayer.add(new CommonSprite(Assets.button_directionDown, 100, 540));
+        inputLayer.add(new CommonSprite(Assets.button_directionLeft, 0, 440));
+        inputLayer.add(new CommonSprite(Assets.button_directionRight, 180, 440));
+        inputLayer.add(new CommonSprite(Assets.button_directionUp, 100, 340));
         inputLayer.add(new CommonSprite(Assets.button_fireButton, 800, 480));
 
     }

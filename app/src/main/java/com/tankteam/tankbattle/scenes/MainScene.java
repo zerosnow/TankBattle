@@ -33,6 +33,8 @@ public class MainScene extends Scene {
     private void loadRes() {
         //背景图加载
         Assets.background = game.getGraphics().newPixmap("image/background/background.png", Graphics.PixmapFormat.RGB565);
+        Assets.background1 = game.getGraphics().newPixmap("image/background/background1.png", Graphics.PixmapFormat.RGB565);
+        Assets.background2 = game.getGraphics().newPixmap("image/background/background2.png", Graphics.PixmapFormat.RGB565);
         Assets.background_over = game.getGraphics().newPixmap("image/background/over.png", Graphics.PixmapFormat.RGB565);
         Assets.background_mainmenu = game.getGraphics().newPixmap("image/background/mainmenu.png", Graphics.PixmapFormat.RGB565);
 
@@ -42,10 +44,10 @@ public class MainScene extends Scene {
         Assets.bullet_tankmissile = game.getGraphics().newPixmap("image/bullet/tankmissile.png", Graphics.PixmapFormat.RGB565);
 
         //按钮加载
-        Assets.button_direcitonDown = game.getGraphics().newPixmap("image/button/direction_down.png", Graphics.PixmapFormat.RGB565);
-        Assets.button_direcitonLeft = game.getGraphics().newPixmap("image/button/direction_left.png", Graphics.PixmapFormat.RGB565);
-        Assets.button_direcitonRight = game.getGraphics().newPixmap("image/button/direction_right.png", Graphics.PixmapFormat.RGB565);
-        Assets.button_direcitonUp = game.getGraphics().newPixmap("image/button/direction_up.png", Graphics.PixmapFormat.RGB565);
+        Assets.button_directionDown = game.getGraphics().newPixmap("image/button/direction_down.png", Graphics.PixmapFormat.RGB565);
+        Assets.button_directionLeft = game.getGraphics().newPixmap("image/button/direction_left.png", Graphics.PixmapFormat.RGB565);
+        Assets.button_directionRight = game.getGraphics().newPixmap("image/button/direction_right.png", Graphics.PixmapFormat.RGB565);
+        Assets.button_directionUp = game.getGraphics().newPixmap("image/button/direction_up.png", Graphics.PixmapFormat.RGB565);
         Assets.button_fireButton = game.getGraphics().newPixmap("image/button/fire_button.png", Graphics.PixmapFormat.RGB565);
 
 

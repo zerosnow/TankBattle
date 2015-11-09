@@ -10,6 +10,8 @@ import com.tankteam.tankbattle.core.graphics.Pixmap;
 public class Assets {
     //背景图
     public static Pixmap background;
+    public static Pixmap background1;
+    public static Pixmap background2;
     public static Pixmap background_over;
     public static Pixmap background_mainmenu;
 
@@ -18,10 +20,10 @@ public class Assets {
     public static Pixmap bullet_tankmissile;
 
     //按钮图
-    public static Pixmap button_direcitonDown;
-    public static Pixmap button_direcitonLeft;
-    public static Pixmap button_direcitonRight;
-    public static Pixmap button_direcitonUp;
+    public static Pixmap button_directionDown;
+    public static Pixmap button_directionLeft;
+    public static Pixmap button_directionRight;
+    public static Pixmap button_directionUp;
     public static Pixmap button_fireButton;
 
     //敌军坦克图
