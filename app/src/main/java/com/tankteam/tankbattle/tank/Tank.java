@@ -4,6 +4,7 @@ import android.graphics.Rect;
 
 import com.tankteam.tankbattle.Assets;
 import com.tankteam.tankbattle.bullet.Bullet;
+import com.tankteam.tankbattle.core.game.Layer;
 import com.tankteam.tankbattle.core.graphics.Pixmap;
 import com.tankteam.tankbattle.core.graphics.Sprite;
 
@@ -28,6 +29,8 @@ public abstract class Tank extends Sprite {
     protected Bullet.BulletType bulletType;
     //是否存活
     protected boolean isAlive;
+
+    protected Layer bulletLayer;
 
     protected Tank() {
         super();
@@ -57,5 +60,7 @@ public abstract class Tank extends Sprite {
         Assets.music_blast.play(1);
         this.remove();
     }
+    //设置子弹层
+    public abstract void setBulletLayer(Layer bulletLayer);
 
 }

@@ -2,6 +2,8 @@ package com.tankteam.tankbattle.tank;
 
 import com.tankteam.tankbattle.Assets;
 import com.tankteam.tankbattle.bullet.Bullet;
+import com.tankteam.tankbattle.bullet.BulletManage;
+import com.tankteam.tankbattle.core.game.Layer;
 import com.tankteam.tankbattle.core.graphics.Graphics;
 import com.tankteam.tankbattle.core.graphics.Pixmap;
 import com.tankteam.tankbattle.core.graphics.Sprite;
@@ -66,13 +68,22 @@ public class EnemyTank extends Tank {
 
     @Override
     public void fire() {
-
+        if (currentFireCooling <= 0) {
+            Bullet bullet = BulletManage.getInstance().CreateBullet(Bullet.BulletType.HERO_NORMAL, this);
+            bulletLayer.add(bullet);
+            currentFireCooling = fireCoolingTime;
+        }
     }
 
     @Override
     public void kill() {
         enemyTankList.remove(this);
         super.kill();
+    }
+
+    @Override
+    public void setBulletLayer(Layer bulletLayer) {
+        this.bulletLayer = bulletLayer;
     }
 
     @Override

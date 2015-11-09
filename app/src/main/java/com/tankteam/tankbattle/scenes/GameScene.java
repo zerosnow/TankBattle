@@ -48,7 +48,8 @@ public class GameScene extends Scene {
     public void update(float deltaTime) {
         inputDeal();
         EnemyTank enemyTank = EnemyManage.getInstance().CreateEnemy(deltaTime);
-        tankLayer.add(enemyTank);
+        if (enemyTank != null)
+            tankLayer.add(enemyTank);
         super.update(deltaTime);
     }
 
@@ -110,6 +111,7 @@ public class GameScene extends Scene {
     public void resume() {
         MapManage.getInstance().InitMap(0, mapLayer);
         playerTank = PlayerTank.getTank();
+        playerTank.setBulletLayer(bulletLayer);
         tankLayer.add(playerTank);
         //添加输入按钮
         inputLayer.add(new CommonSprite(Assets.button_direcitonDown, 100, 540));
