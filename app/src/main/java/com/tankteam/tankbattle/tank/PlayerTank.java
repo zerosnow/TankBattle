@@ -37,8 +37,8 @@ public class PlayerTank extends Tank{
     private PlayerTank(Pixmap pixmap) {
         super();
         super.setPixmap(pixmap);
-        x = 340;
-        y = 560;
+        x = 360;
+        y = 580;
         this.width = this.height = 60;
         rank = 1;
         state = State.NORMAL;
