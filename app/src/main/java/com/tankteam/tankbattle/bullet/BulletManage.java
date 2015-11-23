@@ -20,6 +20,10 @@ public class BulletManage extends Manage{
         return bulletManage;
     }
 
+    public void clearBullet() {
+        bulletManage = null;
+    }
+
     //最大同时存在子弹数
     private static final int MAX_EXIST_BULLET = 100;
     ArrayList<Bullet> bulletList;

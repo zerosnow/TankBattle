@@ -1,6 +1,7 @@
 package com.tankteam.tankbattle.tank;
 
 import com.tankteam.tankbattle.Assets;
+import com.tankteam.tankbattle.TankBattle;
 import com.tankteam.tankbattle.bullet.Bullet;
 import com.tankteam.tankbattle.bullet.BulletManage;
 import com.tankteam.tankbattle.core.game.Layer;
@@ -34,6 +35,11 @@ public class PlayerTank extends Tank{
         return playerTank;
     }
 
+    public void clearTank() {
+        playerTank = null;
+    }
+
+
     private PlayerTank(Pixmap pixmap) {
         super();
         super.setPixmap(pixmap);
@@ -61,6 +67,13 @@ public class PlayerTank extends Tank{
 
     public void kill() {
         super.kill();
+        if (blood >= 1) {
+            blood--;
+            playerTank = new PlayerTank(Assets.playerTank_p1tankU);
+        }
+        else
+            TankBattle.getInstance().onFail();
+
     }
 
     @Override
@@ -108,8 +121,8 @@ public class PlayerTank extends Tank{
 
     @Override
     public boolean collision(Sprite sprite) {
-        if (x < sprite.x + sprite.width && x + width > sprite.x
-                && y < sprite.y + sprite.height && y + height > sprite.y)
+        if (x < sprite.x + sprite.width - 2 && x + width > sprite.x + 2
+                && y < sprite.y + sprite.height - 2 && y + height > sprite.y + 2)
             return true;
         return false;
     }

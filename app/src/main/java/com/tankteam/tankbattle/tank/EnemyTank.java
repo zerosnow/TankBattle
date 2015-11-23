@@ -51,28 +51,28 @@ public class EnemyTank extends Tank {
                 bulletType = Bullet.BulletType.ENEMY_NORMAL;
                 x = 120;
                 blood = 1;
-                setVelocity(0, 50);
+                setVelocity(0, 70);
                 break;
             case SENIOR:
                 super.setPixmap(Assets.enemyTank_enemy2D);
                 bulletType = Bullet.BulletType.ENEMY_NORMAL;
                 x = 450;
                 blood = 1;
-                setVelocity(0, 50);
+                setVelocity(0, 70);
                 break;
             case STRONG:
                 super.setPixmap(Assets.enemyTank_enemy3D);
                 bulletType = Bullet.BulletType.ENEMY_STRONG;
                 x = 780;
                 blood = 2;
-                setVelocity(0, 50);
+                setVelocity(0, 70);
                 break;
             default:
                 super.setPixmap(Assets.enemyTank_enemy1D);
                 bulletType = Bullet.BulletType.ENEMY_NORMAL;
                 x = 120;
                 blood = 1;
-                setVelocity(0, 50);
+                setVelocity(0, 70);
                 break;
         }
 
@@ -132,7 +132,7 @@ public class EnemyTank extends Tank {
                         super.setPixmap(Assets.enemyTank_enemy1U);
                         break;
                 }
-                setVelocity(0 ,-50);
+                setVelocity(0 ,-70);
                 break;
             case 2:
                 direction = DOWN;
@@ -150,7 +150,7 @@ public class EnemyTank extends Tank {
                         super.setPixmap(Assets.enemyTank_enemy1D);
                         break;
                 }
-                setVelocity(0 ,50);
+                setVelocity(0 ,70);
                 break;
             case 3:
                 direction = LEFT;
@@ -168,7 +168,7 @@ public class EnemyTank extends Tank {
                         super.setPixmap(Assets.enemyTank_enemy1L);
                         break;
                 }
-                setVelocity(-50 ,0);
+                setVelocity(-70 ,0);
                 break;
             case 4:
                 direction = RIGHT;
@@ -186,7 +186,7 @@ public class EnemyTank extends Tank {
                         super.setPixmap(Assets.enemyTank_enemy1R);
                         break;
                 }
-                setVelocity(50 ,0);
+                setVelocity(70 ,0);
                 break;
             case 5:
                 fire();

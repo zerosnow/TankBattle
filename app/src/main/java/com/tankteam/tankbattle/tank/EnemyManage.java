@@ -25,6 +25,10 @@ public class EnemyManage extends Manage{
         return enemyManage;
     }
 
+    public void clearEnemy() {
+        enemyManage = null;
+    }
+
     //最大同时存在的坦克数量
     private static final int MAX_EXIST_TANK = 6;
     //当前存在的坦克数量
@@ -76,7 +80,7 @@ public class EnemyManage extends Manage{
                     return enemyTank;
                 }
             }
-            else if (currentTank == 0) {
+            else if (tankInWarehouse == 0) {
                 TankBattle.getInstance().onWin();
             }
         }

@@ -27,7 +27,7 @@ public class GameScene extends Scene {
     private static final int MAP_SPRITE = 480;
     private static final int INPUT_LAYER = 5;
 
-    private static final int PLAYER_SPEED = 50;
+    private static final int PLAYER_SPEED = 80;
 
     private Layer tankLayer;
     private Layer bulletLayer;

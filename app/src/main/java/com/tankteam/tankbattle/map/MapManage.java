@@ -19,6 +19,10 @@ public class MapManage extends Manage {
         }
         return mapManage;
     }
+
+    public void clearMap() {
+        mapManage = null;
+    }
     //当前关卡信息
     private short[][] level;
 

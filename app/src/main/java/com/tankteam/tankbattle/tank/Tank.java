@@ -16,7 +16,7 @@ public abstract class Tank extends Sprite {
         UP, DOWN, LEFT, RIGHT
     }
     //血量
-    protected int blood;
+    protected static int blood;
     //攻击力
     protected int power;
     //方向
