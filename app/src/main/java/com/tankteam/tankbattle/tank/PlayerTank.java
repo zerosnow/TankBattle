@@ -26,6 +26,7 @@ public class PlayerTank extends Tank{
     private int rank;
     private State state;
     private boolean isMoving = false;
+    private Layer tankLayer=null;
 
 
     private static PlayerTank playerTank=null;
@@ -70,10 +71,15 @@ public class PlayerTank extends Tank{
         if (blood >= 1) {
             blood--;
             playerTank = new PlayerTank(Assets.playerTank_p1tankU);
+            tankLayer.add(playerTank);
         }
         else
             TankBattle.getInstance().onFail();
 
+    }
+
+    public void setTankLayer(Layer tankLayer) {
+        this.tankLayer = tankLayer;
     }
 
     @Override
