@@ -113,7 +113,7 @@ public class Bullet extends Sprite{
             return true;
         if (this.bulletType == BulletType.ENEMY_NORMAL || this.bulletType == BulletType.ENEMY_STRONG)
             if (collision(PlayerTank.getTank())) {
-                TankBattle.getInstance().onFail();
+                PlayerTank.getTank().kill();
 
                 return true;
             }

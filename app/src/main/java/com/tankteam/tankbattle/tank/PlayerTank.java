@@ -68,13 +68,7 @@ public class PlayerTank extends Tank{
 
     public void kill() {
         super.kill();
-        if (blood >= 1) {
-            blood--;
-            playerTank = new PlayerTank(Assets.playerTank_p1tankU);
-            tankLayer.add(playerTank);
-        }
-        else
-            TankBattle.getInstance().onFail();
+        TankBattle.getInstance().onFail();
 
     }
 
