@@ -8,6 +8,7 @@ import com.tankteam.tankbattle.core.game.Scene;
 import com.tankteam.tankbattle.map.Map;
 import com.tankteam.tankbattle.map.MapManage;
 import com.tankteam.tankbattle.scenes.MainScene;
+import com.tankteam.tankbattle.scenes.OverScene;
 import com.tankteam.tankbattle.tank.EnemyManage;
 import com.tankteam.tankbattle.tank.PlayerTank;
 
@@ -40,7 +41,7 @@ public class TankBattle extends GameActivity {
         EnemyManage.getInstance().clearEnemy();
         MapManage.getInstance().clearMap();
         BulletManage.getInstance().clearBullet();
-        this.setScene(getStartScene());
+        this.setScene(new OverScene(this, true));
     }
 
     public  void onFail() {
@@ -49,7 +50,7 @@ public class TankBattle extends GameActivity {
         EnemyManage.getInstance().clearEnemy();
         MapManage.getInstance().clearMap();
         BulletManage.getInstance().clearBullet();
-        this.setScene(getStartScene());
+        this.setScene(new OverScene(this, false));
     }
 
     @Override

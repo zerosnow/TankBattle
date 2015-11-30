@@ -1,9 +1,6 @@
 package com.tankteam.tankbattle.bullet;
 
-import android.support.v4.app.NavUtils;
-
 import com.tankteam.tankbattle.Manage;
-import com.tankteam.tankbattle.core.graphics.Pixmap;
 import com.tankteam.tankbattle.tank.Tank;
 
 import java.util.ArrayList;

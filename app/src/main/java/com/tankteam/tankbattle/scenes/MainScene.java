@@ -36,6 +36,7 @@ public class MainScene extends Scene {
         Assets.background1 = game.getGraphics().newPixmap("image/background/background1.png", Graphics.PixmapFormat.RGB565);
         Assets.background2 = game.getGraphics().newPixmap("image/background/background2.png", Graphics.PixmapFormat.RGB565);
         Assets.background_over = game.getGraphics().newPixmap("image/background/over.png", Graphics.PixmapFormat.RGB565);
+        Assets.background_win = game.getGraphics().newPixmap("image/background/win.png", Graphics.PixmapFormat.RGB565);
         Assets.background_mainmenu = game.getGraphics().newPixmap("image/background/mainmenu.png", Graphics.PixmapFormat.RGB565);
 
 

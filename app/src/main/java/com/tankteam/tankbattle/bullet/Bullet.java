@@ -2,13 +2,10 @@ package com.tankteam.tankbattle.bullet;
 
 import com.tankteam.tankbattle.Assets;
 import com.tankteam.tankbattle.TankBattle;
-import com.tankteam.tankbattle.core.game.Game;
 import com.tankteam.tankbattle.core.graphics.Graphics;
-import com.tankteam.tankbattle.core.graphics.Pixmap;
 import com.tankteam.tankbattle.core.graphics.Sprite;
 import com.tankteam.tankbattle.map.Map;
 import com.tankteam.tankbattle.map.MapManage;
-import com.tankteam.tankbattle.scenes.GameScene;
 import com.tankteam.tankbattle.tank.EnemyManage;
 import com.tankteam.tankbattle.tank.PlayerTank;
 import com.tankteam.tankbattle.tank.Tank;

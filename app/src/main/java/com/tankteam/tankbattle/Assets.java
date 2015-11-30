@@ -13,6 +13,7 @@ public class Assets {
     public static Pixmap background1;
     public static Pixmap background2;
     public static Pixmap background_over;
+    public static Pixmap background_win;
     public static Pixmap background_mainmenu;
 
     //子弹图
